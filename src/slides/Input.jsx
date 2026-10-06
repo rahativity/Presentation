@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { motion } from 'framer-motion'
 import Slide from '../components/Slide.jsx'
 import { EASE } from '../components/motion.js'
@@ -439,57 +439,69 @@ export function InputValidation() {
 
         <div className="relative rounded-2xl border border-line bg-surface p-6">
           {/* Overhead Failure Return Loop */}
-          <div className="relative h-10 w-full mb-2">
+          <div className="relative h-10 w-full mb-3">
             <motion.div
               className="absolute inset-x-8 top-1 h-6 rounded-t-xl border-x-[1.5px] border-t-[1.5px] border-dashed border-ink/30"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.45, delay: base + step * 6, ease: EASE }}
             >
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-4 text-[12px] font-medium text-muted">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                className="absolute -bottom-1.5 -left-[6.75px] text-ink/40"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4l4 4 4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-4 text-[12px] font-medium text-muted whitespace-nowrap">
                 Any check fails → Return immediately to user with clear field message, preserving all entered data
               </span>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-[auto_repeat(6,1fr)_auto] items-center gap-2">
+          <div className="flex items-center justify-between w-full px-2">
             {/* Input Start */}
-            <div className="flex flex-col items-center">
-              <span className="grid size-10 place-items-center rounded-full border border-ink/30 bg-white text-small font-semibold text-ink">
+            <div className="flex flex-col items-center shrink-0">
+              <span className="grid size-11 place-items-center rounded-full border border-ink/30 bg-white text-small font-semibold text-ink shadow-2xs">
                 ↳
               </span>
-              <span className="mt-2 text-[11px] font-semibold text-muted uppercase">Input</span>
+              <span className="mt-2 text-[11px] font-semibold text-muted uppercase tracking-wider">Input</span>
             </div>
 
-            <FlowArrow delay={base} className="w-4" />
+            <FlowArrow delay={base + 0.05} className="flex-1 mx-2" />
 
             {/* 6 Checks */}
             {validationPipelineSteps.map((c, i) => (
-              <div key={c.step} className="flex items-center">
-                <div className="flex flex-1 flex-col items-center">
+              <Fragment key={c.step}>
+                <div className="flex flex-col items-center shrink-0">
                   <Reveal delay={base + (i + 1) * step} y={6}>
-                    <span className="grid size-10 place-items-center rounded-full border-[1.5px] border-accent bg-white text-small font-semibold text-accent">
+                    <span className="grid size-11 place-items-center rounded-full border-[1.5px] border-accent bg-white text-small font-semibold text-accent shadow-2xs">
                       {i + 1}
                     </span>
                   </Reveal>
-                  <p className="mt-2 text-[12px] font-semibold text-ink text-center leading-tight">
+                  <p className="mt-2 text-[12px] font-semibold text-ink text-center leading-tight whitespace-nowrap">
                     {c.step}
                   </p>
                 </div>
-                {i < validationPipelineSteps.length - 1 && (
-                  <FlowArrow delay={base + (i + 1) * step + 0.05} className="mx-1 w-3" />
-                )}
-              </div>
+                <FlowArrow delay={base + (i + 1) * step + 0.05} className="flex-1 mx-2" />
+              </Fragment>
             ))}
 
-            <FlowArrow delay={base + 6 * step} className="w-4" />
-
             {/* Accepted End */}
-            <div className="flex flex-col items-center">
-              <span className="grid size-10 place-items-center rounded-full bg-accent text-small font-bold text-white">
+            <div className="flex flex-col items-center shrink-0">
+              <span className="grid size-11 place-items-center rounded-full bg-accent text-small font-bold text-white shadow-2xs">
                 ✓
               </span>
-              <span className="mt-2 text-[11px] font-semibold text-accent uppercase">Saved</span>
+              <span className="mt-2 text-[11px] font-semibold text-accent uppercase tracking-wider">Saved</span>
             </div>
           </div>
         </div>
