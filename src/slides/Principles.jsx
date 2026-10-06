@@ -430,19 +430,19 @@ export function MinimizeUserEffort() {
       subtitle="Anticipate user intent, eliminate unnecessary keystrokes, and enforce the Three-Clicks Rule."
       className="flex flex-col justify-between"
     >
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-5">
         {/* UI Example 1: Autofill */}
-        <RevealCard delay={0.12} className="flex flex-col p-6">
+        <RevealCard delay={0.12} className="flex flex-col p-5">
           <div className="flex items-center justify-between">
             <Label>Effort Reduction</Label>
             <Chip accent>01</Chip>
           </div>
-          <h3 className="mt-3 text-heading font-semibold text-ink">Autofill</h3>
+          <h3 className="mt-2.5 text-heading font-semibold text-ink">Autofill</h3>
           <p className="mt-1 text-caption text-muted">
             Pre-fills saved profile or browser data.
           </p>
 
-          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+          <div className="mt-3.5 rounded-xl border border-line bg-surface p-3">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Shipping Address
@@ -451,42 +451,42 @@ export function MinimizeUserEffort() {
                 Auto-filled
               </span>
             </div>
-            <div className="mt-2.5 space-y-2">
-              <div className="h-8 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[13px] text-ink font-medium">
+            <div className="mt-2 space-y-1.5">
+              <div className="h-7.5 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[12.5px] text-ink font-medium">
                 Ayesha Rahman
               </div>
-              <div className="h-8 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[13px] text-ink font-medium">
+              <div className="h-7.5 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[12.5px] text-ink font-medium">
                 42 Park Road, Block B
               </div>
             </div>
           </div>
-          <p className="mt-4 text-[13px] text-muted">
+          <p className="mt-3 text-[12.5px] text-muted">
             <span className="font-semibold text-ink">Benefit:</span> Eliminates repetitive manual typing.
           </p>
         </RevealCard>
 
         {/* UI Example 2: Predictive Text */}
-        <RevealCard delay={0.18} className="flex flex-col p-6">
+        <RevealCard delay={0.18} className="flex flex-col p-5">
           <div className="flex items-center justify-between">
             <Label>Effort Reduction</Label>
             <Chip accent>02</Chip>
           </div>
-          <h3 className="mt-3 text-heading font-semibold text-ink">Predictive Text</h3>
+          <h3 className="mt-2.5 text-heading font-semibold text-ink">Predictive Text</h3>
           <p className="mt-1 text-caption text-muted">
             Suggests matching queries in real time.
           </p>
 
-          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+          <div className="mt-3.5 rounded-xl border border-line bg-surface p-3">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
               Live Search Field
             </span>
-            <div className="relative mt-2">
+            <div className="relative mt-1.5">
               <input
                 id="effort-predictive-input"
                 value={typedQuery}
                 onChange={(e) => setTypedQuery(e.target.value)}
                 placeholder="Search catalog..."
-                className="h-8 w-full rounded-md border border-accent bg-white px-2.5 text-[13px] text-ink outline-none"
+                className="h-7.5 w-full rounded-md border border-accent bg-white px-2.5 text-[12.5px] text-ink outline-none"
               />
               {sampleSuggestions.length > 0 && (
                 <div className="mt-1 rounded-md border border-line bg-white shadow-xs">
@@ -494,7 +494,7 @@ export function MinimizeUserEffort() {
                     <div
                       key={item}
                       onClick={() => setTypedQuery(item)}
-                      className={`cursor-pointer px-2.5 py-1 text-[12px] hover:bg-surface ${
+                      className={`cursor-pointer px-2.5 py-1 text-[11.5px] hover:bg-surface ${
                         idx === 0 ? 'font-medium text-accent' : 'text-muted'
                       }`}
                     >
@@ -505,38 +505,38 @@ export function MinimizeUserEffort() {
               )}
             </div>
           </div>
-          <p className="mt-4 text-[13px] text-muted">
+          <p className="mt-3 text-[12.5px] text-muted">
             <span className="font-semibold text-ink">Benefit:</span> Prevents typos and speeds search.
           </p>
         </RevealCard>
 
         {/* UI Example 3: Shortcuts */}
-        <RevealCard delay={0.24} className="flex flex-col p-6">
+        <RevealCard delay={0.24} className="flex flex-col p-5">
           <div className="flex items-center justify-between">
             <Label>Effort Reduction</Label>
             <Chip accent>03</Chip>
           </div>
-          <h3 className="mt-3 text-heading font-semibold text-ink">Shortcuts</h3>
+          <h3 className="mt-2.5 text-heading font-semibold text-ink">Shortcuts</h3>
           <p className="mt-1 text-caption text-muted">
             Keyboard accelerators for power users.
           </p>
 
-          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+          <div className="mt-3.5 rounded-xl border border-line bg-surface p-3">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
               Quick Action Bar
             </span>
-            <div className="mt-2.5 space-y-2 text-[12px]">
-              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+            <div className="mt-2 space-y-1.5 text-[11.5px]">
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1">
                 <span className="text-ink">Quick Save</span>
                 <span className="flex items-center gap-1">
                   <Kbd>Ctrl</Kbd>+<Kbd>S</Kbd>
                 </span>
               </div>
-              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1">
                 <span className="text-ink">Global Search</span>
                 <Kbd>/</Kbd>
               </div>
-              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1">
                 <span className="text-ink">Undo Action</span>
                 <span className="flex items-center gap-1">
                   <Kbd>Ctrl</Kbd>+<Kbd>Z</Kbd>
@@ -544,58 +544,58 @@ export function MinimizeUserEffort() {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-[13px] text-muted">
+          <p className="mt-3 text-[12.5px] text-muted">
             <span className="font-semibold text-ink">Benefit:</span> Bypasses mouse navigation for speed.
           </p>
         </RevealCard>
 
         {/* UI Example 4: Remember Me */}
-        <RevealCard delay={0.3} className="flex flex-col p-6">
+        <RevealCard delay={0.3} className="flex flex-col p-5">
           <div className="flex items-center justify-between">
             <Label>Effort Reduction</Label>
             <Chip accent>04</Chip>
           </div>
-          <h3 className="mt-3 text-heading font-semibold text-ink">Remember Me</h3>
+          <h3 className="mt-2.5 text-heading font-semibold text-ink">Remember Me</h3>
           <p className="mt-1 text-caption text-muted">
             Persists session tokens across return visits.
           </p>
 
-          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+          <div className="mt-3.5 rounded-xl border border-line bg-surface p-3">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
               Authentication State
             </span>
-            <div className="mt-2.5 rounded-md border border-line bg-white p-2.5">
-              <label className="flex cursor-pointer items-center gap-2 text-[13px] font-medium text-ink">
+            <div className="mt-2 rounded-md border border-line bg-white p-2">
+              <label className="flex cursor-pointer items-center gap-2 text-[12.5px] font-medium text-ink">
                 <input
                   id="effort-remember-checkbox"
                   type="checkbox"
                   checked={rememberChecked}
                   onChange={(e) => setRememberChecked(e.target.checked)}
-                  className="size-4 accent-accent"
+                  className="size-3.5 accent-accent"
                 />
                 Keep me signed in
               </label>
-              <div className="mt-2 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-2">
+              <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-1.5">
                 <span>Secure token</span>
                 <span className="font-semibold text-accent">Active · 30 Days</span>
               </div>
             </div>
           </div>
-          <p className="mt-4 text-[13px] text-muted">
+          <p className="mt-3 text-[12.5px] text-muted">
             <span className="font-semibold text-ink">Benefit:</span> Eliminates repeated login friction.
           </p>
         </RevealCard>
       </div>
 
       {/* The Three-Clicks Rule Banner */}
-      <Reveal delay={0.45} className="mt-4 flex items-center justify-between rounded-xl border border-accent/30 bg-accent/[0.03] px-8 py-4">
+      <Reveal delay={0.45} className="mt-3 flex items-center justify-between rounded-xl border border-accent/30 bg-accent/[0.03] px-7 py-3">
         <div className="flex items-center gap-4">
-          <span className="grid size-9 place-items-center rounded-lg bg-accent text-[14px] font-bold text-white">
+          <span className="grid size-8 place-items-center rounded-lg bg-accent text-[13px] font-bold text-white">
             3×
           </span>
           <div>
-            <h4 className="text-body font-semibold text-ink">The Three-Clicks Rule</h4>
-            <p className="text-small text-muted">
+            <h4 className="text-[15px] font-semibold text-ink">The Three-Clicks Rule</h4>
+            <p className="text-[13px] text-muted leading-tight">
               Users should be able to navigate to any function, document, or piece of information in no more than three mouse clicks or taps from the start screen.
             </p>
           </div>

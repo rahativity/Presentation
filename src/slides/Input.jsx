@@ -183,7 +183,7 @@ export function OnlineVsBatch() {
     <Slide
       title="Online vs Batch Processing"
       subtitle="Architectural comparison between real-time transaction handling and queued batch execution."
-      className="flex flex-col justify-center gap-9"
+      className="flex flex-col justify-center gap-6"
     >
       <ProcessingRow
         label="Online Processing"
@@ -214,7 +214,7 @@ export function OnlineVsBatch() {
         ]}
       />
 
-      <Reveal delay={0.9} className="rounded-xl border border-line bg-surface p-4 text-small text-muted">
+      <Reveal delay={0.9} className="rounded-xl border border-line bg-surface px-5 py-3 text-[14px] text-muted">
         <span className="font-semibold text-ink">Core Design Recommendation:</span> Prefer online processing whenever possible because errors are flagged instantly while the user is actively present to rectify them.
       </Reveal>
     </Slide>
@@ -375,13 +375,13 @@ export function InputControls() {
     >
       <div className="grid grid-cols-4 gap-4">
         {controlsData.slice(0, 4).map((c, i) => (
-          <RevealCard key={c.title} delay={0.12 + i * 0.05} className="p-4 flex flex-col justify-between">
-            <div className="rounded-lg bg-surface p-3 mb-2 flex items-center min-h-[92px]">
+          <RevealCard key={c.title} delay={0.12 + i * 0.05} className="p-3.5 flex flex-col justify-between">
+            <div className="rounded-lg bg-surface p-2.5 mb-2 flex items-center min-h-[76px]">
               <c.Demo />
             </div>
             <div>
-              <h4 className="text-[15px] font-semibold text-ink">{c.title}</h4>
-              <p className="mt-0.5 text-[12px] text-muted leading-tight">
+              <h4 className="text-[14.5px] font-semibold text-ink">{c.title}</h4>
+              <p className="mt-0.5 text-[11.5px] text-muted leading-tight">
                 <span className="font-medium text-accent">Best for: </span>{c.bestFor}
               </p>
             </div>
@@ -391,13 +391,13 @@ export function InputControls() {
 
       <div className="grid grid-cols-3 gap-4 mt-1">
         {controlsData.slice(4, 7).map((c, i) => (
-          <RevealCard key={c.title} delay={0.32 + i * 0.05} className="p-4 flex flex-col justify-between">
-            <div className="rounded-lg bg-surface p-3 mb-2 flex items-center min-h-[92px]">
+          <RevealCard key={c.title} delay={0.32 + i * 0.05} className="p-3.5 flex flex-col justify-between">
+            <div className="rounded-lg bg-surface p-2.5 mb-2 flex items-center min-h-[76px]">
               <c.Demo />
             </div>
             <div>
-              <h4 className="text-[15px] font-semibold text-ink">{c.title}</h4>
-              <p className="mt-0.5 text-[12px] text-muted leading-tight">
+              <h4 className="text-[14.5px] font-semibold text-ink">{c.title}</h4>
+              <p className="mt-0.5 text-[11.5px] text-muted leading-tight">
                 <span className="font-medium text-accent">Best for: </span>{c.bestFor}
               </p>
             </div>

@@ -119,58 +119,58 @@ export function NavigationDesign() {
     >
       {/* Section 1: Navigation Principles */}
       <div>
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-2">
           <Label>Core Navigation Principles</Label>
           <span className="text-caption text-muted">Safety &amp; Predictability</span>
         </div>
         <div className="grid grid-cols-3 gap-5">
           {/* Principle 1 */}
-          <RevealCard delay={0.12} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.12} className="p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
                 <Index n={1} className="text-caption" />
                 <span className="text-[11px] font-semibold uppercase text-accent">Error Defense</span>
               </div>
-              <h3 className="mt-2 text-body font-semibold text-ink">Prevent Mistakes</h3>
-              <p className="mt-1 text-caption text-muted">
+              <h3 className="mt-1.5 text-body font-semibold text-ink">Prevent Mistakes</h3>
+              <p className="mt-0.5 text-caption text-muted">
                 Label commands clearly, disable invalid choices, and confirm destructive actions.
               </p>
             </div>
-            <div className="mt-3 rounded-lg bg-surface p-2.5">
+            <div className="mt-2.5 rounded-lg bg-surface p-2">
               <MiniDialog />
             </div>
           </RevealCard>
 
           {/* Principle 2 */}
-          <RevealCard delay={0.18} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.18} className="p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
                 <Index n={2} className="text-caption" />
                 <span className="text-[11px] font-semibold uppercase text-accent">Resilience</span>
               </div>
-              <h3 className="mt-2 text-body font-semibold text-ink">Simplify Recovery</h3>
-              <p className="mt-1 text-caption text-muted">
+              <h3 className="mt-1.5 text-body font-semibold text-ink">Simplify Recovery</h3>
+              <p className="mt-0.5 text-caption text-muted">
                 Make actions reversible; keep Undo, Cancel, and Back visible and immediate.
               </p>
             </div>
-            <div className="mt-3 rounded-lg bg-surface p-2.5">
+            <div className="mt-2.5 rounded-lg bg-surface p-2">
               <MiniToast />
             </div>
           </RevealCard>
 
           {/* Principle 3 */}
-          <RevealCard delay={0.24} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.24} className="p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
                 <Index n={3} className="text-caption" />
                 <span className="text-[11px] font-semibold uppercase text-accent">Consistency</span>
               </div>
-              <h3 className="mt-2 text-body font-semibold text-ink">Consistent Grammar</h3>
-              <p className="mt-1 text-caption text-muted">
+              <h3 className="mt-1.5 text-body font-semibold text-ink">Consistent Grammar</h3>
+              <p className="mt-0.5 text-caption text-muted">
                 Standardize command syntax uniformly: either object-then-action or action-then-object.
               </p>
             </div>
-            <div className="mt-3 rounded-lg bg-surface p-2.5">
+            <div className="mt-2.5 rounded-lg bg-surface p-2">
               <MiniGrammar />
             </div>
           </RevealCard>
@@ -181,57 +181,57 @@ export function NavigationDesign() {
 
       {/* Section 2: Navigation Controls */}
       <div>
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-2">
           <Label>Navigation Controls</Label>
           <span className="text-caption text-muted">Interaction Paradigms</span>
         </div>
         <div className="grid grid-cols-3 gap-5">
           {/* Control 1 */}
-          <RevealCard delay={0.3} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.3} className="p-4 flex flex-col justify-between">
             <div>
               <h3 className="text-body font-semibold text-ink">Language Commands</h3>
               <p className="mt-0.5 text-caption text-muted">
                 Users enter textual commands or natural-language syntax.
               </p>
             </div>
-            <div className="mt-3 h-18 rounded-lg bg-surface p-2">
+            <div className="mt-2.5 h-16 rounded-lg bg-surface p-2">
               <TerminalVisual />
             </div>
-            <div className="mt-3 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-2">
+            <div className="mt-2 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-1.5">
               <span><strong className="text-ink">Pro:</strong> Fast for experts</span>
               <span><strong className="text-muted">Con:</strong> Requires recall</span>
             </div>
           </RevealCard>
 
           {/* Control 2 */}
-          <RevealCard delay={0.36} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.36} className="p-4 flex flex-col justify-between">
             <div>
               <h3 className="text-body font-semibold text-ink">Menus</h3>
               <p className="mt-0.5 text-caption text-muted">
                 Users choose from a categorized visual list of options.
               </p>
             </div>
-            <div className="mt-3 h-18 rounded-lg bg-surface p-2">
+            <div className="mt-2.5 h-16 rounded-lg bg-surface p-2">
               <MenuVisual />
             </div>
-            <div className="mt-3 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-2">
+            <div className="mt-2 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-1.5">
               <span><strong className="text-ink">Pro:</strong> Zero memorization</span>
               <span><strong className="text-muted">Con:</strong> Slower for power users</span>
             </div>
           </RevealCard>
 
           {/* Control 3 */}
-          <RevealCard delay={0.42} className="p-5 flex flex-col justify-between">
+          <RevealCard delay={0.42} className="p-4 flex flex-col justify-between">
             <div>
               <h3 className="text-body font-semibold text-ink">Direct Manipulation</h3>
               <p className="mt-0.5 text-caption text-muted">
                 Users interact with visual objects directly (drag, drop, resize).
               </p>
             </div>
-            <div className="mt-3 h-18 rounded-lg bg-surface p-2">
+            <div className="mt-2.5 h-16 rounded-lg bg-surface p-2">
               <DragVisual />
             </div>
-            <div className="mt-3 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-2">
+            <div className="mt-2 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-1.5">
               <span><strong className="text-ink">Pro:</strong> Natural tactile feedback</span>
               <span><strong className="text-muted">Con:</strong> Hard for bulk tasks</span>
             </div>

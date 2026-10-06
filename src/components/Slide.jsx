@@ -25,7 +25,7 @@ export function SlideShell({ className = '', footer = true, children }) {
 export function SlideFooter() {
   const { index, total } = useSlide()
   return (
-    <div className="absolute inset-x-[112px] bottom-[40px] flex items-center justify-end text-caption text-muted">
+    <div className="absolute inset-x-[112px] bottom-[18px] flex items-center justify-end text-caption text-muted">
       <span className="tabular-nums">
         {pad(index + 1)} <span className="text-muted/50">/ {pad(total)}</span>
       </span>
@@ -60,7 +60,7 @@ export default function Slide({ eyebrow, title, subtitle, className = '', childr
   return (
     <SlideShell>
       <SlideHeader eyebrow={eyebrow} title={title} subtitle={subtitle} />
-      <div className={`mt-12 min-h-0 flex-1 ${className}`}>{children}</div>
+      <div className={`mt-9 min-h-0 flex-1 ${className}`}>{children}</div>
     </SlideShell>
   )
 }

@@ -145,8 +145,6 @@ export function ActivitySummaryThankYou() {
           </div>
         </Reveal>
       </div>
-
-      <SlideFooter />
     </SlideShell>
   )
 }
