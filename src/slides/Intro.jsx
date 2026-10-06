@@ -32,13 +32,19 @@ export function Welcome() {
             System Interface Design, Navigation Design, Input Design and Output Design
           </p>
         </Reveal>
+        <Reveal delay={0.42}>
+          <div className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/[0.05] px-5 py-2 text-[20px] font-semibold text-accent">
+            <span className="size-2.5 rounded-full bg-accent" />
+            <span>Presented by Team 4</span>
+          </div>
+        </Reveal>
       </div>
 
       <Reveal
         delay={0.5}
         className="flex items-center justify-between border-t border-line pt-6 text-caption text-muted"
       >
-        <span>Undergraduate Computer Science</span>
+        <span>Presented by Team 4</span>
         <span className="flex items-center gap-2">
           Press <Kbd>→</Kbd> to begin · <Kbd>F</Kbd> for fullscreen
         </span>
@@ -51,13 +57,12 @@ export function Welcome() {
    02 · Learning overview — vertical timeline
 ------------------------------------------------------------------- */
 const roadmap = [
-  ['UI Design Principles', 'The foundations of a usable interface'],
-  ['UI Design Process', 'From use scenarios to evaluation'],
-  ['Navigation Design', 'Helping users move through the system'],
-  ['Input Design', 'Capturing accurate data efficiently'],
-  ['Output Design', 'Presenting information that matters'],
-  ['Tune Source Case Study', 'Applying every concept to one system'],
-  ['Summary', 'Key takeaways and discussion'],
+  ['UI Design Principles', 'Foundations of usable, aesthetic, and low-effort interfaces'],
+  ['UI Design Process', 'From use scenarios to iterative prototyping and evaluation'],
+  ['Navigation Design', 'Principles, controls, components, menus, and messaging'],
+  ['Input Design & Validation', 'Source data capture, controls, and multi-tier validation'],
+  ['Output Design & Case Study', 'Reports, dashboards, and the end-to-end Tune Source journey'],
+  ['Summary & Discussion', 'Key takeaways, seminar activity, and academic discussion'],
 ]
 
 export function LearningOverview() {
@@ -68,8 +73,7 @@ export function LearningOverview() {
           <SlideHeader title="Learning Overview" />
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-[480px] text-lead text-muted">
-              Seven parts — from the principles behind good interfaces to applying them in a real
-              system.
+              Six parts — from the principles behind good interfaces to applying them in a complete real-world system.
             </p>
           </Reveal>
         </div>

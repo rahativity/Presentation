@@ -1,15 +1,39 @@
+import { useState } from 'react'
 import Slide from '../components/Slide.jsx'
-import { Bar, FlowArrow, Index, Label, Points, Reveal, RevealCard, Window } from '../components/ui.jsx'
+import {
+  Bar,
+  Chip,
+  FlowArrow,
+  Index,
+  Kbd,
+  Label,
+  Points,
+  Reveal,
+  RevealCard,
+  Window,
+} from '../components/ui.jsx'
 
 /* ------------------------------------------------------------------
-   03 · What is User Interface Design?
+   03 · Introduction to UI Design (Merged: Purpose, Interaction,
+        Satisfaction, Efficiency)
 ------------------------------------------------------------------- */
-const uiFocus = [
-  { title: 'User interaction', text: 'How people communicate with the system' },
-  { title: 'User satisfaction', text: 'How people feel while using it' },
-  { title: 'System efficiency', text: 'How quickly and reliably tasks get done' },
-  { title: 'Usability', text: 'How easy the system is to learn and use' },
-  { title: 'Accessibility', text: 'Whether everyone is able to use it' },
+const uiMergedTopics = [
+  {
+    title: 'Purpose of UI Design',
+    text: 'Serves as the vital bridge between human users and underlying software functionality — translating intent into action and system state into clear comprehension.',
+  },
+  {
+    title: 'User Interaction',
+    text: 'The bidirectional dialogue: users express commands through inputs, gestures, and controls, while the system responds with immediate visual feedback and state changes.',
+  },
+  {
+    title: 'User Satisfaction',
+    text: 'How people feel while working with the system — fostering confidence, trust, comfort, and minimal frustration through intuitive, pleasant, and accessible design.',
+  },
+  {
+    title: 'System Efficiency',
+    text: 'Enabling tasks to be completed rapidly, accurately, and with minimal friction — eliminating wasted steps, reducing input errors, and maximizing operational throughput.',
+  },
 ]
 
 function PersonGlyph() {
@@ -42,53 +66,51 @@ function DatabaseGlyph() {
 function ArrowPair({ delay, down, up }) {
   return (
     <div className="flex h-16 items-stretch gap-4">
-      <span className="w-40 self-center text-right text-caption text-muted">{down}</span>
+      <span className="w-44 self-center text-right text-caption text-muted">{down}</span>
       <FlowArrow vertical delay={delay} />
       <FlowArrow vertical delay={delay + 0.1} className="rotate-180" />
-      <span className="w-40 self-center text-caption text-muted">{up}</span>
+      <span className="w-44 self-center text-caption text-muted">{up}</span>
     </div>
   )
 }
 
 export function WhatIsUI() {
   return (
-    <Slide title="What is User Interface Design?" className="grid grid-cols-[1fr_1fr] gap-20">
-      <div>
-        <Reveal delay={0.12}>
-          <p className="text-lead text-ink">
-            The interface is the part of the system users actually see — the screens, forms and
-            reports through which they get their work done.
-          </p>
-        </Reveal>
-        <Points items={uiFocus} delay={0.22} size="small" className="mt-10 space-y-4" />
+    <Slide
+      title="Introduction to UI Design"
+      subtitle="The user interface connects human users to underlying software capabilities, shaping interaction, satisfaction, and operational efficiency."
+      className="grid grid-cols-[1.1fr_1fr] gap-16"
+    >
+      <div className="flex flex-col justify-center">
+        <Points items={uiMergedTopics} delay={0.15} size="small" className="space-y-5" />
       </div>
 
-      <div className="-mt-6 flex flex-col items-center justify-center">
+      <div className="-mt-4 flex flex-col items-center justify-center">
         <Reveal delay={0.2} className="flex flex-col items-center">
           <PersonGlyph />
           <span className="mt-1 text-small font-medium text-ink">User</span>
         </Reveal>
         <ArrowPair delay={0.3} down="Actions & input" up="Feedback & output" />
         <Reveal delay={0.35} className="flex flex-col items-center">
-          <Window highlight className="h-[210px] w-[400px]" bodyClassName="p-5">
+          <Window highlight className="h-[200px] w-[390px]" bodyClassName="p-5">
             <div className="flex items-center gap-3">
               <span className="size-5 rounded bg-accent" />
               <Bar className="w-12" />
               <Bar className="w-12" />
               <Bar className="w-12" />
             </div>
-            <Bar className="mt-6 h-3 w-40 bg-ink/20" />
+            <Bar className="mt-5 h-3 w-40 bg-ink/20" />
             <div className="mt-4 grid grid-cols-2 gap-3">
               <span className="h-8 rounded-md border border-line" />
               <span className="h-8 rounded-md border border-line" />
             </div>
-            <div className="mt-4 flex justify-end">
+            <div className="mt-3 flex justify-end">
               <span className="h-7 w-20 rounded-md bg-accent" />
             </div>
           </Window>
           <span className="mt-2 text-small font-semibold text-accent">Interface</span>
         </Reveal>
-        <ArrowPair delay={0.45} down="Requests" up="Data & results" />
+        <ArrowPair delay={0.45} down="Requests & queries" up="Data & results" />
         <Reveal delay={0.5} className="flex flex-col items-center">
           <DatabaseGlyph />
           <span className="mt-1 text-small font-medium text-ink">System</span>
@@ -99,22 +121,26 @@ export function WhatIsUI() {
 }
 
 /* ------------------------------------------------------------------
-   04 · Core UI principles
+   04 · UI Design Principles (8 Card Grid)
 ------------------------------------------------------------------- */
 const corePrinciples = [
-  ['Layout', 'Organise every screen into predictable, consistent areas.'],
-  ['Content Awareness', 'Users always know where they are and what they see.'],
-  ['Aesthetics', 'Pleasing, functional visuals with minimal clutter.'],
-  ['User Experience', 'Easy to learn, easy to use, satisfying to work with.'],
-  ['Consistency', 'The same things look and behave the same way.'],
-  ['Minimize User Effort', 'Fewer clicks, less typing, less to remember.'],
-  ['Accessibility', 'Usable by people of all abilities and devices.'],
-  ['Scalability', 'Designs that grow with new features and users.'],
+  ['Layout', 'Organise every screen into predictable, consistent areas (nav, work, status).'],
+  ['Content Awareness', 'Ensure users always know where they are, what they see, and what happened.'],
+  ['Aesthetics', 'Pleasing, functional visual design with balanced whitespace and clear hierarchy.'],
+  ['User Experience', 'Intuitive, satisfying, and easy to learn for novices while efficient for experts.'],
+  ['Consistency', 'Identical behaviors, terms, icons, and visual elements across the system.'],
+  ['Minimize User Effort', 'Reduce cognitive load, keystrokes, and clicks (the Three-Clicks Rule).'],
+  ['Accessibility', 'Ensure equal access across abilities, assistive technologies, and devices.'],
+  ['Scalability', 'Accommodate feature expansion, large datasets, and evolving user requirements.'],
 ]
 
 export function CorePrinciples() {
   return (
-    <Slide title="Core UI Principles" className="grid grid-cols-4 grid-rows-2 gap-5">
+    <Slide
+      title="UI Design Principles"
+      subtitle="Eight foundational principles that govern the usability, learnability, and longevity of system interfaces."
+      className="grid grid-cols-4 grid-rows-2 gap-5"
+    >
       {corePrinciples.map(([title, text], i) => (
         <RevealCard key={title} delay={0.12 + i * 0.05} className="flex flex-col p-7">
           <Index n={i + 1} className="text-small" />
@@ -129,7 +155,7 @@ export function CorePrinciples() {
 }
 
 /* ------------------------------------------------------------------
-   05 · Layout & content awareness
+   05 · Layout + Content Awareness (Combined Visual)
 ------------------------------------------------------------------- */
 function Callout({ n }) {
   return (
@@ -140,15 +166,19 @@ function Callout({ n }) {
 }
 
 const awareness = [
-  ['Page titles', 'Name the current screen'],
-  ['Breadcrumbs', 'Show the path — and a way back'],
-  ['Labels', 'Describe every field and area'],
-  ['System feedback', 'Confirm what just happened'],
+  ['Page titles', 'Explicitly name the current screen and its purpose'],
+  ['Breadcrumbs', 'Show the hierarchical path — and provide a one-click way back'],
+  ['Labels', 'Unambiguously describe every input field and content section'],
+  ['Feedback', 'Immediately confirm system actions and status changes'],
 ]
 
 export function LayoutAwareness() {
   return (
-    <Slide title="Layout & Content Awareness" className="grid grid-cols-[1.2fr_1fr] gap-20">
+    <Slide
+      title="Layout & Content Awareness"
+      subtitle="Standardized screen zones paired with explicit contextual signposts keep users oriented."
+      className="grid grid-cols-[1.2fr_1fr] gap-20"
+    >
       {/* Wireframe with the three standard areas */}
       <Reveal delay={0.15} className="flex h-full flex-col overflow-hidden rounded-xl border border-line">
         <div className="flex h-[60px] shrink-0 items-center gap-6 border-b border-line bg-surface px-6">
@@ -212,15 +242,15 @@ export function LayoutAwareness() {
         <Reveal delay={0.2}>
           <h3 className="text-heading font-semibold text-ink">Layout</h3>
           <p className="mt-2 text-small text-muted">
-            Divide each screen into navigation, work and status areas — and keep them in the same
-            place on every screen.
+            Divide each screen into three functional zones — navigation, work, and status — and keep
+            their positions uniform across every screen in the system.
           </p>
         </Reveal>
         <div className="my-9 h-px bg-line" />
         <Reveal delay={0.28}>
           <h3 className="text-heading font-semibold text-ink">Content awareness</h3>
           <p className="mt-2 text-small text-muted">
-            Users should always know where they are and what the system is doing.
+            Users should never feel lost or uncertain about system state.
           </p>
         </Reveal>
         <ul className="mt-6 space-y-4">
@@ -241,154 +271,336 @@ export function LayoutAwareness() {
 }
 
 /* ------------------------------------------------------------------
-   06 · Aesthetics & user experience
+   06 · Aesthetics + UX + Consistency (Clean 3-Column Comparison)
 ------------------------------------------------------------------- */
-function SplitColumn({ title, intro, items, delay, children }) {
+export function AestheticsUXConsistency() {
   return (
-    <div>
-      <Reveal delay={delay}>
-        <h3 className="text-[34px] font-semibold tracking-tight text-ink">{title}</h3>
-        <p className="mt-2 text-body text-muted">{intro}</p>
-      </Reveal>
-      {children}
-      <Points items={items} delay={delay + 0.12} className="mt-10 space-y-7" />
-    </div>
-  )
-}
+    <Slide
+      title="Aesthetics, UX & Consistency"
+      subtitle="Visual elegance, operational experience, and system-wide predictability work together to eliminate friction."
+      className="grid grid-cols-3 gap-8"
+    >
+      {/* Column 1: Aesthetics */}
+      <RevealCard delay={0.12} className="flex flex-col p-8">
+        <div className="flex items-center justify-between">
+          <Label>Visual Design</Label>
+          <span className="text-[12px] font-semibold uppercase tracking-wider text-accent">Looks</span>
+        </div>
+        <h3 className="mt-3 text-heading font-semibold text-ink">Aesthetics</h3>
+        <p className="mt-1 text-small text-muted">How the interface appears visually.</p>
 
-export function AestheticsUX() {
-  return (
-    <Slide title="Aesthetics & User Experience" className="grid grid-cols-2">
-      <div className="pr-20">
-        <SplitColumn
-          title="Aesthetics"
-          intro="How the interface looks."
-          delay={0.12}
-          items={[
-            {
-              title: 'Colors',
-              text: 'A limited palette with strong contrast; colour supports meaning but never carries it alone.',
-            },
-            {
-              title: 'Fonts',
-              text: 'One or two readable typefaces with a clear, consistent size hierarchy.',
-            },
-            {
-              title: 'Whitespace',
-              text: 'Group related items and give content room to breathe — avoid dense screens.',
-            },
-          ]}
-        >
-          <Reveal delay={0.2} className="mt-7 flex items-center gap-3">
+        {/* Micro Visual */}
+        <div className="mt-6 rounded-xl border border-line bg-surface p-4">
+          <div className="flex items-center gap-2">
             {['#171717', '#666666', '#1F4E79', '#E5E5E5'].map((c) => (
               <span
                 key={c}
-                className="size-9 rounded-lg border border-line"
+                className="size-7 rounded-md border border-line"
                 style={{ backgroundColor: c }}
                 title={c}
               />
             ))}
-            <span className="ml-4 text-[34px] font-semibold leading-none tracking-tight text-ink">
-              Aa
-            </span>
-            <span className="text-[22px] leading-none text-ink">Aa</span>
-            <span className="text-[15px] leading-none text-muted">Aa</span>
-          </Reveal>
-        </SplitColumn>
-      </div>
+            <div className="ml-auto flex items-baseline gap-1.5">
+              <span className="text-[26px] font-semibold leading-none text-ink">Aa</span>
+              <span className="text-[18px] leading-none text-muted">Aa</span>
+              <span className="text-[13px] leading-none text-muted/60">Aa</span>
+            </div>
+          </div>
+        </div>
 
-      <div className="border-l border-line pl-20">
-        <SplitColumn
-          title="User Experience"
-          intro="How the interface feels to use."
-          delay={0.2}
+        <Points
+          items={[
+            {
+              title: 'Purposeful Colors',
+              text: 'A restrained, high-contrast palette. Color reinforces meaning but is never the sole indicator.',
+            },
+            {
+              title: 'Typography Scale',
+              text: 'Clear hierarchy across titles, body, and labels with readable, scalable fonts.',
+            },
+            {
+              title: 'Whitespace & Density',
+              text: 'Chunk related elements; give content room to breathe to avoid visual fatigue.',
+            },
+          ]}
+          delay={0.25}
+          size="small"
+          className="mt-6 space-y-4"
+        />
+      </RevealCard>
+
+      {/* Column 2: User Experience */}
+      <RevealCard delay={0.2} className="flex flex-col p-8">
+        <div className="flex items-center justify-between">
+          <Label>Interaction Design</Label>
+          <span className="text-[12px] font-semibold uppercase tracking-wider text-accent">Feels</span>
+        </div>
+        <h3 className="mt-3 text-heading font-semibold text-ink">User Experience</h3>
+        <p className="mt-1 text-small text-muted">How the interface feels during operation.</p>
+
+        {/* Micro Visual */}
+        <div className="mt-6 flex h-[62px] items-center justify-between rounded-xl border border-line bg-surface px-4 text-caption text-muted">
+          <span className="flex items-center gap-2 rounded-lg border border-line bg-white px-3 py-1.5 text-[13px] text-ink">
+            <span className="size-2 rounded-full bg-accent animate-pulse" /> Saving state…
+          </span>
+          <span className="flex items-center gap-1.5 text-[12px]">
+            <Kbd>Tab</Kbd>
+            <span>to focus</span>
+          </span>
+        </div>
+
+        <Points
           items={[
             {
               title: 'Responsiveness',
-              text: 'Immediate feedback on every action, and layouts that adapt to any screen size.',
+              text: 'Immediate visual feedback for every user action; layout adapts seamlessly across devices.',
             },
             {
-              title: 'Error handling',
-              text: 'Prevent errors first; when they happen, explain clearly how to recover.',
+              title: 'Learnability & Ease',
+              text: 'Natural mental models enable novices to learn quickly and experts to work rapidly.',
             },
             {
-              title: 'Accessibility',
-              text: 'Keyboard support, screen-reader labels and sufficient colour contrast.',
+              title: 'Accessibility & Safety',
+              text: 'Full keyboard navigation, high contrast, and tolerant workflows that simplify error recovery.',
             },
           ]}
-        >
-          <Reveal delay={0.28} className="mt-7 flex h-9 items-center gap-3 text-caption text-muted">
-            <span className="flex h-9 items-center gap-2 rounded-lg border border-line px-3">
-              <span className="size-2 rounded-full bg-accent" /> Saving…
-            </span>
-            <span className="flex h-9 items-center rounded-lg border border-line px-3">
-              <Kbd>Tab</Kbd>
-              <span className="ml-2">to move</span>
-            </span>
-          </Reveal>
-        </SplitColumn>
-      </div>
+          delay={0.33}
+          size="small"
+          className="mt-6 space-y-4"
+        />
+      </RevealCard>
+
+      {/* Column 3: Consistency */}
+      <RevealCard delay={0.28} className="flex flex-col p-8">
+        <div className="flex items-center justify-between">
+          <Label>System Standards</Label>
+          <span className="text-[12px] font-semibold uppercase tracking-wider text-accent">Behaves</span>
+        </div>
+        <h3 className="mt-3 text-heading font-semibold text-ink">Consistency</h3>
+        <p className="mt-1 text-small text-muted">How the interface behaves predictably.</p>
+
+        {/* Micro Visual */}
+        <div className="mt-6 flex h-[62px] items-center justify-between rounded-xl border border-line bg-surface px-4 text-caption text-muted">
+          <span className="text-[12px] text-ink">
+            <span className="font-semibold text-accent">Internal:</span> “Save” bottom-right
+          </span>
+          <span className="text-[12px] text-muted">
+            <span className="font-semibold text-ink">External:</span> <Kbd>Ctrl+S</Kbd>
+          </span>
+        </div>
+
+        <Points
+          items={[
+            {
+              title: 'Internal Consistency',
+              text: 'Same terminology, typography, colors, and button placement on every screen across the system.',
+            },
+            {
+              title: 'External Conventions',
+              text: 'Conforms to platform standards users already know (e.g., logo links home, standard shortcuts).',
+            },
+            {
+              title: 'Muscle Memory',
+              text: 'Users transfer learned habits across screens without hesitating or relearning interactions.',
+            },
+          ]}
+          delay={0.41}
+          size="small"
+          className="mt-6 space-y-4"
+        />
+      </RevealCard>
     </Slide>
   )
 }
 
-function Kbd({ children }) {
-  return (
-    <kbd className="rounded border border-line px-1.5 text-[12px] font-sans text-ink">{children}</kbd>
-  )
-}
-
 /* ------------------------------------------------------------------
-   07 · Consistency & minimize user effort
+   07 · Minimize User Effort (With UI Examples & 3-Clicks Rule)
 ------------------------------------------------------------------- */
-export function ConsistencyEffort() {
+export function MinimizeUserEffort() {
+  const [typedQuery, setTypedQuery] = useState('Wire')
+  const [rememberChecked, setRememberChecked] = useState(true)
+
+  const sampleSuggestions = ['Wireless Headphones', 'Wireless Charger', 'Wired Earbuds'].filter((s) =>
+    s.toLowerCase().includes(typedQuery.toLowerCase()),
+  )
+
   return (
-    <Slide title="Consistency & Minimize User Effort" className="flex flex-col">
-      <div className="grid flex-1 grid-cols-2 gap-8">
-        <RevealCard delay={0.12} className="flex flex-col p-10">
-          <Label>Consistency</Label>
-          <p className="mt-3 text-heading font-semibold text-ink">
-            The same things look and behave the same way.
-          </p>
-          <div className="mt-auto grid grid-cols-2 gap-8">
-            {[
-              ['Internal', 'Within the system — same layout, terms, colours and button positions on every screen.', '“Save” is always bottom-right'],
-              ['External', 'With other systems and platform conventions users already know.', 'Ctrl + S saves · logo returns home'],
-            ].map(([title, text, example], i) => (
-              <Reveal key={title} delay={0.25 + i * 0.08}>
-                <p className="text-body font-semibold text-accent">{title}</p>
-                <p className="mt-2 text-small text-muted">{text}</p>
-                <p className="mt-4 border-l-2 border-accent/30 pl-3 text-caption text-ink">
-                  {example}
-                </p>
-              </Reveal>
-            ))}
+    <Slide
+      title="Minimize User Effort"
+      subtitle="Anticipate user intent, eliminate unnecessary keystrokes, and enforce the Three-Clicks Rule."
+      className="flex flex-col justify-between"
+    >
+      <div className="grid grid-cols-4 gap-6">
+        {/* UI Example 1: Autofill */}
+        <RevealCard delay={0.12} className="flex flex-col p-6">
+          <div className="flex items-center justify-between">
+            <Label>Effort Reduction</Label>
+            <Chip accent>01</Chip>
           </div>
+          <h3 className="mt-3 text-heading font-semibold text-ink">Autofill</h3>
+          <p className="mt-1 text-caption text-muted">
+            Pre-populate fields using data already stored in profile or browser cache.
+          </p>
+
+          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                Shipping Address
+              </span>
+              <span className="rounded bg-accent/10 px-1.5 py-0.5 text-[10px] font-semibold text-accent">
+                Auto-filled
+              </span>
+            </div>
+            <div className="mt-2.5 space-y-2">
+              <div className="h-8 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[13px] text-ink font-medium">
+                Ayesha Rahman
+              </div>
+              <div className="h-8 rounded-md border border-accent/40 bg-white px-2.5 flex items-center text-[13px] text-ink font-medium">
+                42 Park Road, Block B
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 text-[13px] text-muted">
+            <span className="font-semibold text-ink">Benefit:</span> Eliminates 80% of repetitive checkout keystrokes.
+          </p>
         </RevealCard>
 
-        <RevealCard delay={0.2} className="flex flex-col p-10">
-          <Label>Minimize user effort</Label>
-          <p className="mt-3 text-heading font-semibold text-ink">
-            Fewer clicks, less typing, less to remember.
-          </p>
-          <div className="mt-auto grid grid-cols-2 gap-x-8 gap-y-7">
-            {[
-              ['Autofill', 'Pre-fill data the system already knows'],
-              ['Predictive text', 'Suggest values as the user types'],
-              ['Shortcuts', 'Keyboard accelerators for frequent actions'],
-              ['Remember me', 'Keep returning users signed in'],
-            ].map(([title, text], i) => (
-              <Reveal key={title} delay={0.33 + i * 0.06}>
-                <p className="text-body font-semibold text-accent">{title}</p>
-                <p className="mt-1 text-small text-muted">{text}</p>
-              </Reveal>
-            ))}
+        {/* UI Example 2: Predictive Text */}
+        <RevealCard delay={0.18} className="flex flex-col p-6">
+          <div className="flex items-center justify-between">
+            <Label>Effort Reduction</Label>
+            <Chip accent>02</Chip>
           </div>
+          <h3 className="mt-3 text-heading font-semibold text-ink">Predictive Text</h3>
+          <p className="mt-1 text-caption text-muted">
+            Suggest matching terms and queries in real time as the user types.
+          </p>
+
+          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              Live Search Field
+            </span>
+            <div className="relative mt-2">
+              <input
+                id="effort-predictive-input"
+                value={typedQuery}
+                onChange={(e) => setTypedQuery(e.target.value)}
+                placeholder="Search catalog..."
+                className="h-8 w-full rounded-md border border-accent bg-white px-2.5 text-[13px] text-ink outline-none"
+              />
+              {sampleSuggestions.length > 0 && (
+                <div className="mt-1 rounded-md border border-line bg-white shadow-xs">
+                  {sampleSuggestions.map((item, idx) => (
+                    <div
+                      key={item}
+                      onClick={() => setTypedQuery(item)}
+                      className={`cursor-pointer px-2.5 py-1 text-[12px] hover:bg-surface ${
+                        idx === 0 ? 'font-medium text-accent' : 'text-muted'
+                      }`}
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <p className="mt-4 text-[13px] text-muted">
+            <span className="font-semibold text-ink">Benefit:</span> Prevents spelling errors and narrows results instantly.
+          </p>
+        </RevealCard>
+
+        {/* UI Example 3: Shortcuts */}
+        <RevealCard delay={0.24} className="flex flex-col p-6">
+          <div className="flex items-center justify-between">
+            <Label>Effort Reduction</Label>
+            <Chip accent>03</Chip>
+          </div>
+          <h3 className="mt-3 text-heading font-semibold text-ink">Shortcuts</h3>
+          <p className="mt-1 text-caption text-muted">
+            Keyboard accelerators for high-frequency actions and power users.
+          </p>
+
+          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              Quick Action Bar
+            </span>
+            <div className="mt-2.5 space-y-2 text-[12px]">
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+                <span className="text-ink">Quick Save</span>
+                <span className="flex items-center gap-1">
+                  <Kbd>Ctrl</Kbd>+<Kbd>S</Kbd>
+                </span>
+              </div>
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+                <span className="text-ink">Global Search</span>
+                <Kbd>/</Kbd>
+              </div>
+              <div className="flex items-center justify-between rounded-md border border-line bg-white px-2.5 py-1.5">
+                <span className="text-ink">Undo Action</span>
+                <span className="flex items-center gap-1">
+                  <Kbd>Ctrl</Kbd>+<Kbd>Z</Kbd>
+                </span>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 text-[13px] text-muted">
+            <span className="font-semibold text-ink">Benefit:</span> Bypasses mouse travel for repetitive daily workflows.
+          </p>
+        </RevealCard>
+
+        {/* UI Example 4: Remember Me */}
+        <RevealCard delay={0.3} className="flex flex-col p-6">
+          <div className="flex items-center justify-between">
+            <Label>Effort Reduction</Label>
+            <Chip accent>04</Chip>
+          </div>
+          <h3 className="mt-3 text-heading font-semibold text-ink">Remember Me</h3>
+          <p className="mt-1 text-caption text-muted">
+            Persist session tokens and user state across multiple visits.
+          </p>
+
+          <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              Authentication State
+            </span>
+            <div className="mt-2.5 rounded-md border border-line bg-white p-2.5">
+              <label className="flex cursor-pointer items-center gap-2 text-[13px] font-medium text-ink">
+                <input
+                  id="effort-remember-checkbox"
+                  type="checkbox"
+                  checked={rememberChecked}
+                  onChange={(e) => setRememberChecked(e.target.checked)}
+                  className="size-4 accent-accent"
+                />
+                Keep me signed in
+              </label>
+              <div className="mt-2 flex items-center justify-between text-[11px] text-muted border-t border-line/60 pt-2">
+                <span>Secure token</span>
+                <span className="font-semibold text-accent">Active · 30 Days</span>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 text-[13px] text-muted">
+            <span className="font-semibold text-ink">Benefit:</span> Eliminates continuous re-authentication friction.
+          </p>
         </RevealCard>
       </div>
-      <Reveal delay={0.6} className="mt-6 text-small text-muted">
-        <span className="font-semibold text-ink">Three-clicks rule:</span> users should be able to
-        reach any function or information in no more than three clicks.
+
+      {/* The Three-Clicks Rule Banner */}
+      <Reveal delay={0.45} className="mt-4 flex items-center justify-between rounded-xl border border-accent/30 bg-accent/[0.03] px-8 py-4">
+        <div className="flex items-center gap-4">
+          <span className="grid size-9 place-items-center rounded-lg bg-accent text-[14px] font-bold text-white">
+            3×
+          </span>
+          <div>
+            <h4 className="text-body font-semibold text-ink">The Three-Clicks Rule</h4>
+            <p className="text-small text-muted">
+              Users should be able to navigate to any function, document, or piece of information in no more than three mouse clicks or taps from the start screen.
+            </p>
+          </div>
+        </div>
+        <Chip accent>Standard HCI Benchmark</Chip>
       </Reveal>
     </Slide>
   )

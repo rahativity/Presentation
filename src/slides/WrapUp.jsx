@@ -1,167 +1,147 @@
-import Slide, { SlideFooter, SlideShell } from '../components/Slide.jsx'
-import { Index, Label, Points, Reveal, RevealCard } from '../components/ui.jsx'
+import { SlideFooter, SlideShell } from '../components/Slide.jsx'
+import { Chip, Index, Label, Reveal, RevealCard } from '../components/ui.jsx'
 
 /* ------------------------------------------------------------------
-   29 · Activity Discussion
+   20 · Activity + Summary + Thank You (Merged Master Conclusion)
 ------------------------------------------------------------------- */
-const discussionPrompt1 = [
+const discussionAngles = [
   {
-    title: 'Cognitive load & familiarity',
-    text: 'Users transfer mental models from prior systems without relearning.',
+    title: 'Cognitive Load Reduction',
+    text: 'Users transfer existing mental models effortlessly without having to pause, decipher, or relearn interactions.',
   },
   {
-    title: 'Error prevention',
-    text: 'Standardized layouts and button placement avoid accidental destructive actions.',
+    title: 'Error Prevention & Safety',
+    text: 'Standardized button positions, destructive confirmations, and color semantics prevent accidental mistakes.',
   },
   {
-    title: 'Speed & muscle memory',
-    text: 'Predictable navigation allows power users to complete frequent tasks rapidly.',
+    title: 'Speed & Muscle Memory',
+    text: 'Predictable workflows and keyboard accelerators allow frequent users to navigate at maximum throughput.',
+  },
+  {
+    title: 'Design System Governance',
+    text: 'Centralized UI tokens, reusable component templates, and heuristic audits ensure coherence across teams.',
   },
 ]
 
-const discussionPrompt2 = [
-  {
-    title: 'Design systems & UI token libraries',
-    text: 'Centralize color tokens, typography scales, spacing units, and components.',
-  },
-  {
-    title: 'Interface standards documentation',
-    text: 'Formalize metaphors, terminology, screen templates, and icon meanings.',
-  },
-  {
-    title: 'Heuristic evaluation & peer audits',
-    text: 'Systematically inspect new screens against standards before deployment.',
-  },
-]
-
-export function ActivityDiscussion() {
-  return (
-    <Slide
-      title="Activity & Discussion"
-      subtitle="Seminar debate: Evaluating the impact of interface consistency on large-scale software systems."
-      className="grid grid-cols-2 gap-8"
-    >
-      <RevealCard delay={0.12} className="flex flex-col p-6">
-        <div className="flex items-center gap-2.5">
-          <span className="grid size-7 place-items-center rounded-lg bg-accent text-xs font-semibold text-white">
-            Q1
-          </span>
-          <Label>Discussion Prompt 1</Label>
-        </div>
-        <h3 className="mt-3 text-heading font-semibold text-ink leading-snug">
-          How does consistency improve user experience?
-        </h3>
-        <p className="mt-1.5 text-caption text-muted">
-          Consider cognitive workload, learning curves, and user confidence when interacting with unfamiliar modules.
-        </p>
-
-        <div className="mt-5 border-t border-line pt-4">
-          <Label className="mb-3">Guiding Angles</Label>
-          <Points items={discussionPrompt1} delay={0.2} size="small" className="space-y-3" />
-        </div>
-      </RevealCard>
-
-      <RevealCard delay={0.2} className="flex flex-col p-6">
-        <div className="flex items-center gap-2.5">
-          <span className="grid size-7 place-items-center rounded-lg border border-accent/40 bg-accent/[0.05] text-xs font-semibold text-accent">
-            Q2
-          </span>
-          <Label>Discussion Prompt 2</Label>
-        </div>
-        <h3 className="mt-3 text-heading font-semibold text-ink leading-snug">
-          What strategies help maintain consistency across a system?
-        </h3>
-        <p className="mt-1.5 text-caption text-muted">
-          How can multi-disciplinary engineering and design teams ensure coherence as a system scales over time?
-        </p>
-
-        <div className="mt-5 border-t border-line pt-4">
-          <Label className="mb-3">Practical Strategies</Label>
-          <Points items={discussionPrompt2} delay={0.28} size="small" className="space-y-3" />
-        </div>
-      </RevealCard>
-    </Slide>
-  )
-}
-
-/* ------------------------------------------------------------------
-   30 · Summary & Thank You
-------------------------------------------------------------------- */
-const takeaways = [
+const summaryPillars = [
   {
     title: 'UI Principles',
-    desc: 'Balance layout, aesthetics, consistency, and effort minimization for high usability.',
+    badge: 'Pillar 1',
+    desc: 'Balance layout, aesthetics, UX, consistency, and effort minimization (the Three-Clicks Rule).',
   },
   {
     title: 'UI Process',
+    badge: 'Pillar 2',
     desc: 'Iterate systematically from use scenarios through structure to prototyping and evaluation.',
   },
   {
     title: 'Navigation Design',
-    desc: 'Structure hierarchies, provide breadcrumbs, and ensure actions are easily reversible.',
+    badge: 'Pillar 3',
+    desc: 'Provide predictable hierarchies, mistake prevention, easy recovery, and appropriate menu controls.',
   },
   {
     title: 'Input Design',
-    desc: 'Capture data at source; choose the right control; minimize manual user typing.',
+    badge: 'Pillar 4',
+    desc: 'Capture data at source via automation, select the optimal control, and minimize manual typing.',
   },
   {
     title: 'Validation',
-    desc: 'Enforce multi-tier validation (format, range, consistency, database) before accepting data.',
+    badge: 'Pillar 5',
+    desc: 'Enforce multi-tier checks (completeness, format, range, check digit, consistency, database).',
   },
   {
     title: 'Output Design',
-    desc: 'Deliver relevant, accurate, timely information across appropriate media and formats.',
+    badge: 'Pillar 6',
+    desc: 'Deliver relevant, accurate, timely reports and dashboards across web, mobile, PDF, and print.',
   },
 ]
 
-export function SummaryThankYou() {
+export function ActivitySummaryThankYou() {
   return (
-    <SlideShell>
-      {/* Top Half: Key Takeaways */}
+    <SlideShell className="justify-between">
+      {/* Top Part: Activity & Discussion Question */}
       <div>
-        <Reveal y={6}>
-          <p className="text-eyebrow font-semibold uppercase text-accent">Lecture Conclusion</p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-3 text-title font-semibold text-ink">Key Takeaways</h2>
-        </Reveal>
-        
-        <div className="mt-8 grid grid-cols-6 gap-4">
-          {takeaways.map((t, i) => (
-            <RevealCard key={t.title} delay={0.12 + i * 0.05} className="p-5 flex flex-col justify-between">
+        <div className="flex items-center justify-between">
+          <Reveal y={4}>
+            <p className="text-eyebrow font-semibold uppercase text-accent">
+              06 — Summary &amp; Discussion
+            </p>
+          </Reveal>
+          <Chip accent>Interactive Seminar Activity</Chip>
+        </div>
+
+        <div className="mt-3 grid grid-cols-[1.1fr_1.9fr] gap-6 rounded-2xl border border-line bg-surface p-5">
+          <div className="flex flex-col justify-between border-r border-line pr-6">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="grid size-6 place-items-center rounded bg-accent text-[11px] font-bold text-white">
+                  Q
+                </span>
+                <Label>Seminar Discussion Prompt</Label>
+              </div>
+              <h3 className="mt-2 text-[20px] font-bold text-ink leading-snug">
+                How does consistency improve user experience?
+              </h3>
+              <p className="mt-1 text-caption text-muted">
+                Analyze the compounding impact of internal and external consistency on user confidence, learning curves, and system errors.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 text-[12px]">
+            {discussionAngles.map((a) => (
+              <div key={a.title} className="rounded-lg border border-line bg-white p-2.5">
+                <p className="font-semibold text-accent">{a.title}</p>
+                <p className="mt-0.5 text-muted leading-relaxed">{a.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Middle Part: Summary of 6 Major Topics */}
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <Label>Lecture Summary · Core Curriculum Pillars</Label>
+          <span className="text-caption text-muted">Complete Topic Synthesis</span>
+        </div>
+        <div className="grid grid-cols-6 gap-3">
+          {summaryPillars.map((p, i) => (
+            <RevealCard key={p.title} delay={0.15 + i * 0.04} className="p-3.5 flex flex-col justify-between">
               <div>
-                <Index n={i + 1} className="text-caption" />
-                <h3 className="mt-3 text-body font-semibold text-ink leading-tight">{t.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-muted">{t.desc}</p>
+                <div className="flex items-center justify-between">
+                  <Index n={i + 1} className="text-[11px]" />
+                  <span className="text-[10px] font-semibold uppercase text-accent">{p.badge}</span>
+                </div>
+                <h4 className="mt-1.5 text-[14px] font-semibold text-ink leading-tight">{p.title}</h4>
+                <p className="mt-1 text-[11px] text-muted leading-snug">{p.desc}</p>
               </div>
             </RevealCard>
           ))}
         </div>
       </div>
 
-      <div className="my-8 h-px bg-line" />
-
-      {/* Bottom Half: Thank You & Discussion */}
-      <div className="flex flex-1 items-center justify-between">
+      {/* Bottom Part: Thank You & Open Q&A */}
+      <div className="rounded-2xl border border-accent/30 bg-accent/[0.03] px-8 py-5 flex items-center justify-between">
         <div>
-          <Reveal delay={0.45}>
-            <h3 className="text-[44px] font-bold tracking-tight text-ink">
+          <Reveal delay={0.4}>
+            <h3 className="text-[34px] font-bold tracking-tight text-ink leading-none">
               Thank You.
             </h3>
           </Reveal>
-          <Reveal delay={0.5}>
-            <p className="mt-2 text-lead text-muted">
+          <Reveal delay={0.45}>
+            <p className="mt-1.5 text-[17px] text-muted font-medium">
               Questions &amp; Academic Discussion
             </p>
           </Reveal>
         </div>
 
-        <Reveal delay={0.55} className="text-right">
-          <p className="text-body font-semibold text-ink">System Analysis &amp; Design</p>
-          <p className="mt-1 text-small text-muted">Department of Computer Science &amp; Engineering</p>
-          <div className="mt-4 flex items-center justify-end gap-2 text-caption text-accent">
-            <span className="size-2 rounded-full bg-accent" />
-            <span>Course Lecture Presentation · Final Slide</span>
+        <Reveal delay={0.5} className="text-right">
+          <p className="text-small font-semibold text-ink">System Analysis &amp; Design</p>
+          <p className="text-caption text-muted">Department of Computer Science &amp; Engineering</p>
+          <div className="mt-1.5 flex items-center justify-end gap-2 text-[12px] font-medium text-accent">
+            <span className="size-2 rounded-full bg-accent animate-pulse" />
+            <span>Course Lecture Presentation Complete · 20 Slides</span>
           </div>
         </Reveal>
       </div>

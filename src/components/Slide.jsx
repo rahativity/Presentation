@@ -25,8 +25,7 @@ export function SlideShell({ className = '', footer = true, children }) {
 export function SlideFooter() {
   const { index, total } = useSlide()
   return (
-    <div className="absolute inset-x-[112px] bottom-[40px] flex items-center justify-between text-caption text-muted">
-      <span>System Analysis &amp; Design</span>
+    <div className="absolute inset-x-[112px] bottom-[40px] flex items-center justify-end text-caption text-muted">
       <span className="tabular-nums">
         {pad(index + 1)} <span className="text-muted/50">/ {pad(total)}</span>
       </span>

@@ -12,8 +12,8 @@ import fs from 'fs';
   
   const pdfDoc = await PDFDocument.create();
   
-  // 30 slides in the presentation
-  for (let i = 1; i <= 30; i++) {
+  // 20 slides in the refactored presentation
+  for (let i = 1; i <= 20; i++) {
     console.log(`Capturing slide ${i}...`);
     await page.goto(`http://localhost:5173/#${i}`, { waitUntil: 'networkidle0' });
     

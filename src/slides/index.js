@@ -1,43 +1,33 @@
 import { LearningOverview, Welcome } from './Intro.jsx'
 import {
-  AestheticsUX,
-  ConsistencyEffort,
+  AestheticsUXConsistency,
   CorePrinciples,
   LayoutAwareness,
+  MinimizeUserEffort,
   WhatIsUI,
 } from './Principles.jsx'
 import {
   InterfaceEvaluation,
-  InterfaceStructure,
   ProcessOverview,
+  ScenarioStructure,
   StandardsPrototyping,
-  UseScenario,
 } from './Process.jsx'
 import {
-  MenuTypes,
   MessageDesign,
-  NavigationComponents,
-  NavigationControls,
-  NavigationPrinciples,
+  NavComponentsMenuTypes,
+  NavigationDesign,
 } from './Navigation.jsx'
 import {
-  DataCapture,
   InputControls,
   InputOverview,
+  InputValidation,
   OnlineVsBatch,
-  ValidationExamples,
-  ValidationPipeline,
 } from './Input.jsx'
-import { OutputPrinciples, OutputTypes } from './Output.jsx'
-import {
-  ApplyingConcepts,
-  TuneSourceJourney,
-  TuneSourceOverview,
-} from './CaseStudy.jsx'
-import { ActivityDiscussion, SummaryThankYou } from './WrapUp.jsx'
+import { OutputCaseStudy } from './CaseStudy.jsx'
+import { ActivitySummaryThankYou } from './WrapUp.jsx'
 
 export const slides = [
-  // 01–02: Intro & Agenda
+  // 01–02: Introduction & Learning Overview
   {
     id: 'welcome',
     title: 'System Analysis & Design',
@@ -54,13 +44,13 @@ export const slides = [
   // 03–07: UI Design Principles
   {
     id: 'what-is-ui',
-    title: 'What is User Interface Design?',
+    title: 'Introduction to UI Design',
     section: 'principles',
     Component: WhatIsUI,
   },
   {
     id: 'core-principles',
-    title: 'Core UI Principles',
+    title: 'UI Design Principles',
     section: 'principles',
     Component: CorePrinciples,
   },
@@ -71,19 +61,19 @@ export const slides = [
     Component: LayoutAwareness,
   },
   {
-    id: 'aesthetics-ux',
-    title: 'Aesthetics & User Experience',
+    id: 'aesthetics-ux-consistency',
+    title: 'Aesthetics, UX & Consistency',
     section: 'principles',
-    Component: AestheticsUX,
+    Component: AestheticsUXConsistency,
   },
   {
-    id: 'consistency-effort',
-    title: 'Consistency & Minimize User Effort',
+    id: 'minimize-user-effort',
+    title: 'Minimize User Effort',
     section: 'principles',
-    Component: ConsistencyEffort,
+    Component: MinimizeUserEffort,
   },
 
-  // 08–12: UI Design Process
+  // 08–11: UI Design Process
   {
     id: 'process-overview',
     title: 'UI Design Process Overview',
@@ -91,20 +81,14 @@ export const slides = [
     Component: ProcessOverview,
   },
   {
-    id: 'use-scenario',
-    title: 'Use Scenario Development',
+    id: 'scenario-structure',
+    title: 'Scenario Development & Structure Design',
     section: 'process',
-    Component: UseScenario,
-  },
-  {
-    id: 'interface-structure',
-    title: 'Interface Structure Design',
-    section: 'process',
-    Component: InterfaceStructure,
+    Component: ScenarioStructure,
   },
   {
     id: 'standards-prototyping',
-    title: 'Interface Standards & Prototyping',
+    title: 'Standards Design & Prototyping',
     section: 'process',
     Component: StandardsPrototyping,
   },
@@ -115,30 +99,18 @@ export const slides = [
     Component: InterfaceEvaluation,
   },
 
-  // 13–17: Navigation Design
+  // 12–14: Navigation Design
   {
-    id: 'navigation-principles',
-    title: 'Navigation Design Principles',
+    id: 'navigation-design',
+    title: 'Navigation Design',
     section: 'navigation',
-    Component: NavigationPrinciples,
+    Component: NavigationDesign,
   },
   {
-    id: 'navigation-controls',
-    title: 'Navigation Controls',
+    id: 'nav-components-menu-types',
+    title: 'Navigation Components & Menu Types',
     section: 'navigation',
-    Component: NavigationControls,
-  },
-  {
-    id: 'navigation-components',
-    title: 'Common Navigation Components',
-    section: 'navigation',
-    Component: NavigationComponents,
-  },
-  {
-    id: 'menu-types',
-    title: 'Menu Types',
-    section: 'navigation',
-    Component: MenuTypes,
+    Component: NavComponentsMenuTypes,
   },
   {
     id: 'message-design',
@@ -147,7 +119,7 @@ export const slides = [
     Component: MessageDesign,
   },
 
-  // 18–23: Input Design & Validation
+  // 15–18: Input Design & Validation
   {
     id: 'input-overview',
     title: 'Input Design Overview',
@@ -161,75 +133,31 @@ export const slides = [
     Component: OnlineVsBatch,
   },
   {
-    id: 'data-capture',
-    title: 'Data Capture Technologies',
-    section: 'input',
-    Component: DataCapture,
-  },
-  {
     id: 'input-controls',
     title: 'Input Controls',
     section: 'input',
     Component: InputControls,
   },
   {
-    id: 'validation-pipeline',
+    id: 'input-validation',
     title: 'Input Validation',
     section: 'input',
-    Component: ValidationPipeline,
-  },
-  {
-    id: 'validation-examples',
-    title: 'Validation Examples',
-    section: 'input',
-    Component: ValidationExamples,
+    Component: InputValidation,
   },
 
-  // 24–25: Output Design
+  // 19: Output Design & Tune Source Case Study
   {
-    id: 'output-principles',
-    title: 'Output Design Principles',
-    section: 'output',
-    Component: OutputPrinciples,
-  },
-  {
-    id: 'output-types',
-    title: 'Types of Outputs',
-    section: 'output',
-    Component: OutputTypes,
+    id: 'output-case-study',
+    title: 'Output Design & Tune Source Case Study',
+    section: 'outputCaseStudy',
+    Component: OutputCaseStudy,
   },
 
-  // 26–28: Tune Source Case Study
+  // 20: Activity, Summary & Thank You
   {
-    id: 'tune-source-overview',
-    title: 'Tune Source Music Store',
-    section: 'caseStudy',
-    Component: TuneSourceOverview,
-  },
-  {
-    id: 'applying-concepts',
-    title: 'Applying Concepts at Tune Source',
-    section: 'caseStudy',
-    Component: ApplyingConcepts,
-  },
-  {
-    id: 'tune-source-journey',
-    title: 'Tune Source User Journey',
-    section: 'caseStudy',
-    Component: TuneSourceJourney,
-  },
-
-  // 29–30: Discussion & Summary
-  {
-    id: 'activity-discussion',
-    title: 'Activity & Discussion',
+    id: 'activity-summary-thank-you',
+    title: 'Activity, Summary & Thank You',
     section: 'summary',
-    Component: ActivityDiscussion,
-  },
-  {
-    id: 'summary-thank-you',
-    title: 'Summary & Thank You',
-    section: 'summary',
-    Component: SummaryThankYou,
+    Component: ActivitySummaryThankYou,
   },
 ]

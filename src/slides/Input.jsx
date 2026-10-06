@@ -5,137 +5,11 @@ import { EASE } from '../components/motion.js'
 import { Chip, FlowArrow, Index, Label, Reveal, RevealCard } from '../components/ui.jsx'
 
 /* ------------------------------------------------------------------
-   18 · Input design overview
-------------------------------------------------------------------- */
-const inputGoals = [
-  ['Data accuracy', 'Capture correct data the first time it is entered.'],
-  ['Data integrity', 'Keep data valid and consistent across the whole system.'],
-  ['User satisfaction', 'Make data entry quick, clear and painless.'],
-  ['Efficient data entry', 'Fewer keystrokes, fewer screens, less re-typing.'],
-]
-
-export function InputOverview() {
-  return (
-    <Slide
-      title="Input Design Overview"
-      subtitle="Goal: capture accurate information for the system — simply and easily."
-      className="flex flex-col"
-    >
-      <div className="grid flex-1 grid-cols-4 gap-12">
-        {inputGoals.map(([title, text], i) => (
-          <Reveal key={title} delay={0.18 + i * 0.08} className="border-t-2 border-accent pt-7">
-            <Index n={i + 1} className="text-small" />
-            <h3 className="mt-4 text-heading font-semibold text-ink">{title}</h3>
-            <p className="mt-3 text-small text-muted">{text}</p>
-          </Reveal>
-        ))}
-      </div>
-      <Reveal delay={0.55} className="rounded-2xl bg-surface px-9 py-7">
-        <Label>Three input principles</Label>
-        <div className="mt-4 grid grid-cols-3 gap-10">
-          {[
-            ['Use online processing', 'when possible, for immediate feedback'],
-            ['Capture data at the source', 'to avoid copying and re-keying'],
-            ['Minimise keystrokes', 'with defaults, lists and automation'],
-          ].map(([a, b]) => (
-            <p key={a} className="text-small text-muted">
-              <span className="font-semibold text-ink">{a}</span> {b}
-            </p>
-          ))}
-        </div>
-      </Reveal>
-    </Slide>
-  )
-}
-
-/* ------------------------------------------------------------------
-   19 · Online vs batch processing
-------------------------------------------------------------------- */
-function FlowNode({ title, text, delay, strong = false, children }) {
-  return (
-    <Reveal
-      delay={delay}
-      y={8}
-      className={`flex w-[196px] shrink-0 flex-col items-center rounded-xl border px-4 py-5 text-center ${
-        strong ? 'border-accent/60 bg-accent/[0.03]' : 'border-line bg-white'
-      }`}
-    >
-      {children}
-      <p className={`text-body font-semibold ${strong ? 'text-accent' : 'text-ink'}`}>{title}</p>
-      <p className="mt-1 text-caption text-muted">{text}</p>
-    </Reveal>
-  )
-}
-
-function ProcessingRow({ label, tag, description, examples, nodes, delay }) {
-  return (
-    <div className="grid grid-cols-[300px_1fr] items-center gap-12">
-      <Reveal delay={delay}>
-        <div className="flex items-center gap-3">
-          <h3 className="text-[30px] font-semibold tracking-tight text-ink">{label}</h3>
-          <Chip accent>{tag}</Chip>
-        </div>
-        <p className="mt-2 text-small text-muted">{description}</p>
-        <p className="mt-3 text-caption text-ink">
-          <span className="text-muted">e.g. </span>
-          {examples}
-        </p>
-      </Reveal>
-      <div className="flex items-center">
-        {nodes.map((n, i) => (
-          <div key={n.title} className={`flex items-center ${i < nodes.length - 1 ? 'flex-1' : ''}`}>
-            <FlowNode {...n} delay={delay + 0.1 + i * 0.14} />
-            {i < nodes.length - 1 && <FlowArrow delay={delay + 0.18 + i * 0.14} className="mx-3 flex-1" />}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export function OnlineVsBatch() {
-  return (
-    <Slide title="Online vs Batch Processing" className="flex flex-col justify-center gap-10">
-      <ProcessingRow
-        label="Online"
-        tag="Immediate"
-        description="Each transaction is processed the moment it is entered."
-        examples="ATM withdrawal, flight booking, online checkout"
-        delay={0.15}
-        nodes={[
-          { title: 'Input', text: 'User places an order' },
-          { title: 'System', text: 'Validated and processed instantly', strong: true },
-          { title: 'Result', text: 'Confirmation shown' },
-        ]}
-      />
-      <div className="h-px bg-line" />
-      <ProcessingRow
-        label="Batch"
-        tag="Scheduled"
-        description="Transactions are collected and processed together at set times."
-        examples="payroll, monthly billing, end-of-day bank updates"
-        delay={0.55}
-        nodes={[
-          { title: 'Input', text: 'Records entered all day' },
-          { title: 'Queue', text: 'Held until the scheduled run' },
-          { title: 'Batch', text: 'Processed together at 23:00', strong: true },
-          { title: 'Result', text: 'Reports and updates' },
-        ]}
-      />
-      <Reveal delay={1.1} className="text-small text-muted">
-        <span className="font-semibold text-ink">Prefer online processing where possible</span> — errors
-        are caught while the user is still there to fix them.
-      </Reveal>
-    </Slide>
-  )
-}
-
-/* ------------------------------------------------------------------
-   20 · Data capture technologies
+   15 · Input Design Overview (Merged: Principles + Data Capture)
 ------------------------------------------------------------------- */
 const glyphProps = {
-  width: 44,
-  height: 44,
+  width: 40,
+  height: 40,
   viewBox: '0 0 44 44',
   fill: 'none',
   stroke: '#1F4E79',
@@ -157,13 +31,6 @@ const glyphs = {
     <svg {...glyphProps}>
       <path d="M6 13V8a2 2 0 012-2h5M31 6h5a2 2 0 012 2v5M38 31v5a2 2 0 01-2 2h-5M13 38H8a2 2 0 01-2-2v-5" />
       <path d="M14 16h16M14 22h16M14 28h10" />
-    </svg>
-  ),
-  stripe: (
-    <svg {...glyphProps}>
-      <rect x="5" y="10" width="34" height="24" rx="3" />
-      <path d="M5 16h34M5 20h34" strokeWidth="2.6" />
-      <path d="M10 28h8" />
     </svg>
   ),
   chip: (
@@ -189,47 +56,180 @@ const glyphs = {
   ),
 }
 
-const technologies = [
-  ['Barcode Reader', 'Scans printed codes to identify items instantly.', 'Retail checkout, inventory', glyphs.barcode],
-  ['OCR', 'Converts printed or handwritten text into digital data.', 'Forms, cheques, ID cards', glyphs.ocr],
-  ['Magnetic Stripe', 'Reads data stored on a magnetic strip.', 'Bank cards, hotel keys', glyphs.stripe],
-  ['Smart Card', 'An embedded chip stores and processes data securely.', 'Bank cards, SIM cards, IDs', glyphs.chip],
-  ['RFID', 'Radio tags are read without contact or line of sight.', 'Toll gates, library books', glyphs.rfid],
-  ['Web Forms', 'Users enter data directly into the system online.', 'Registration, checkout', glyphs.form],
+const inputPrinciplesList = [
+  {
+    title: 'Data Accuracy',
+    desc: 'Capture error-free data at the point of origination to prevent cascading corruption.',
+  },
+  {
+    title: 'Data Integrity',
+    desc: 'Enforce business rules, schema constraints, and valid relational references.',
+  },
+  {
+    title: 'Keystroke Reduction',
+    desc: 'Minimise manual typing with defaults, structured selection lists, and auto-complete.',
+  },
+  {
+    title: 'Source Data Automation',
+    desc: 'Capture data electronically where it originates to eliminate human re-keying.',
+  },
 ]
 
-export function DataCapture() {
+const technologies = [
+  ['Barcode Reader', 'Scans 1D/2D optical codes instantly', 'Retail POS, warehouse inventory', glyphs.barcode],
+  ['OCR', 'Converts printed/written characters to digital data', 'Forms, cheques, paper archives', glyphs.ocr],
+  ['Smart Card', 'Cryptographic microchip stores and authenticates data', 'EMV bank cards, national IDs', glyphs.chip],
+  ['RFID', 'Radio tags read wirelessly without line of sight', 'Toll systems, supply chain logistics', glyphs.rfid],
+  ['Web Forms', 'Captures structured user input directly online', 'E-commerce, customer portals', glyphs.form],
+]
+
+export function InputOverview() {
   return (
     <Slide
-      title="Data Capture Technologies"
-      subtitle="Source data automation: capture data electronically, where it originates."
-      className="grid grid-cols-3 grid-rows-2 gap-5"
+      title="Input Design Overview"
+      subtitle="Capturing accurate information at the source through human-centered design principles and automated hardware capture."
+      className="flex flex-col justify-between"
     >
-      {technologies.map(([title, text, use, glyph], i) => (
-        <RevealCard key={title} delay={0.18 + i * 0.06} className="flex gap-6 p-7">
-          <div className="shrink-0">{glyph}</div>
-          <div className="flex flex-col">
-            <h3 className="text-body font-semibold text-ink">{title}</h3>
-            <p className="mt-1.5 text-small text-muted">{text}</p>
-            <p className="mt-auto pt-3 text-caption text-ink">
-              <span className="text-muted">Used in · </span>
-              {use}
-            </p>
-          </div>
-        </RevealCard>
-      ))}
+      {/* Top: Principles */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <Label>Core Input Design Principles</Label>
+          <span className="text-caption text-muted">Accuracy &amp; Integrity</span>
+        </div>
+        <div className="grid grid-cols-4 gap-5">
+          {inputPrinciplesList.map((p, i) => (
+            <RevealCard key={p.title} delay={0.12 + i * 0.06} className="p-5 border-t-2 border-t-accent">
+              <Index n={i + 1} className="text-caption" />
+              <h3 className="mt-2 text-body font-semibold text-ink">{p.title}</h3>
+              <p className="mt-1 text-caption text-muted">{p.desc}</p>
+            </RevealCard>
+          ))}
+        </div>
+      </div>
+
+      <div className="h-px bg-line my-1" />
+
+      {/* Bottom: Technologies */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <Label>Data Capture Technologies (Source Data Automation)</Label>
+          <span className="text-caption text-muted">Hardware &amp; Electronic Entry</span>
+        </div>
+        <div className="grid grid-cols-5 gap-4">
+          {technologies.map(([title, desc, use, glyph], i) => (
+            <RevealCard key={title} delay={0.25 + i * 0.05} className="p-4 flex flex-col justify-between">
+              <div>
+                <div className="mb-2">{glyph}</div>
+                <h4 className="text-[15px] font-semibold text-ink leading-snug">{title}</h4>
+                <p className="mt-1 text-[12px] text-muted leading-tight">{desc}</p>
+              </div>
+              <div className="mt-3 border-t border-line/60 pt-2 text-[11px] text-ink">
+                <span className="text-muted">Used in: </span>{use}
+              </div>
+            </RevealCard>
+          ))}
+        </div>
+      </div>
     </Slide>
   )
 }
 
 /* ------------------------------------------------------------------
-   21 · Input controls — live, interactive examples
+   16 · Online vs Batch Processing (Dedicated Comparison Slide)
+------------------------------------------------------------------- */
+function FlowNode({ title, text, delay, strong = false }) {
+  return (
+    <Reveal
+      delay={delay}
+      y={8}
+      className={`flex w-[190px] shrink-0 flex-col items-center rounded-xl border px-3.5 py-4 text-center ${
+        strong ? 'border-accent/60 bg-accent/[0.03]' : 'border-line bg-white'
+      }`}
+    >
+      <p className={`text-body font-semibold ${strong ? 'text-accent' : 'text-ink'}`}>{title}</p>
+      <p className="mt-1 text-caption text-muted">{text}</p>
+    </Reveal>
+  )
+}
+
+function ProcessingRow({ label, tag, description, examples, nodes, delay }) {
+  return (
+    <div className="grid grid-cols-[300px_1fr] items-center gap-12">
+      <Reveal delay={delay}>
+        <div className="flex items-center gap-3">
+          <h3 className="text-[30px] font-semibold tracking-tight text-ink">{label}</h3>
+          <Chip accent>{tag}</Chip>
+        </div>
+        <p className="mt-2 text-small text-muted">{description}</p>
+        <p className="mt-3 text-caption text-ink">
+          <span className="text-muted">e.g. </span>
+          {examples}
+        </p>
+      </Reveal>
+      <div className="flex items-center">
+        {nodes.map((n, i) => (
+          <div key={n.title} className={`flex items-center ${i < nodes.length - 1 ? 'flex-1' : ''}`}>
+            <FlowNode {...n} delay={delay + 0.1 + i * 0.12} />
+            {i < nodes.length - 1 && <FlowArrow delay={delay + 0.16 + i * 0.12} className="mx-3 flex-1" />}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export function OnlineVsBatch() {
+  return (
+    <Slide
+      title="Online vs Batch Processing"
+      subtitle="Architectural comparison between real-time transaction handling and queued batch execution."
+      className="flex flex-col justify-center gap-9"
+    >
+      <ProcessingRow
+        label="Online Processing"
+        tag="Immediate"
+        description="Each transaction is processed, validated, and persisted the moment it is submitted."
+        examples="ATM cash withdrawal, flight seat reservation, e-commerce checkout"
+        delay={0.15}
+        nodes={[
+          { title: 'User Input', text: 'Customer places order online' },
+          { title: 'Real-Time Validation', text: 'Checked & processed immediately', strong: true },
+          { title: 'Instant Result', text: 'Confirmation & receipt displayed' },
+        ]}
+      />
+
+      <div className="h-px bg-line" />
+
+      <ProcessingRow
+        label="Batch Processing"
+        tag="Scheduled"
+        description="Transactions are gathered over an operational period and processed together at scheduled times."
+        examples="Corporate payroll, monthly utility billing, end-of-day bank clearing"
+        delay={0.5}
+        nodes={[
+          { title: 'Accumulation', text: 'Timesheets entered all week' },
+          { title: 'Batch Queue', text: 'Stored safely until run time' },
+          { title: 'Scheduled Run', text: 'Mass processing executed at midnight', strong: true },
+          { title: 'Bulk Output', text: 'Direct deposits & payslips issued' },
+        ]}
+      />
+
+      <Reveal delay={0.9} className="rounded-xl border border-line bg-surface p-4 text-small text-muted">
+        <span className="font-semibold text-ink">Core Design Recommendation:</span> Prefer online processing whenever possible because errors are flagged instantly while the user is actively present to rectify them.
+      </Reveal>
+    </Slide>
+  )
+}
+
+/* ------------------------------------------------------------------
+   17 · Input Controls (7 Controls: Text Box, Dropdown, Checkbox,
+        Radio Button, List Box, Combo Box, Slider)
 ------------------------------------------------------------------- */
 function TextBoxDemo() {
   return (
     <label className="block w-full">
       <span className="text-caption text-muted">Full name</span>
-      <input id="demo-textbox" className="field mt-1.5" placeholder="e.g. Ayesha Rahman" />
+      <input id="demo-textbox" className="field mt-1.5" placeholder="e.g. Ayesha Rahman" defaultValue="Ayesha Rahman" />
     </label>
   )
 }
@@ -245,10 +245,10 @@ function SelectChevron() {
 function DropdownDemo() {
   return (
     <label className="block w-full">
-      <span className="text-caption text-muted">Genre</span>
+      <span className="text-caption text-muted">Primary Genre</span>
       <span className="relative mt-1.5 block">
         <select id="demo-dropdown" className="field appearance-none pr-9" defaultValue="Jazz">
-          {['Classical', 'Jazz', 'Pop', 'Rock', 'Hip-hop', 'Folk'].map((g) => (
+          {['Classical', 'Jazz', 'Pop', 'Rock', 'Electronic'].map((g) => (
             <option key={g}>{g}</option>
           ))}
         </select>
@@ -260,15 +260,14 @@ function DropdownDemo() {
 
 function CheckboxDemo() {
   return (
-    <fieldset className="w-full space-y-2">
-      <legend className="text-caption text-muted">Notify me about</legend>
+    <fieldset className="w-full space-y-1.5">
+      <legend className="text-caption text-muted">Notification Options</legend>
       {[
-        ['New releases', true],
-        ['Price drops', false],
-        ['Concerts nearby', true],
+        ['New album releases', true],
+        ['Tour announcements', false],
       ].map(([l, on]) => (
-        <label key={l} className="flex cursor-pointer items-center gap-2.5 text-small text-ink">
-          <input type="checkbox" defaultChecked={on} className="size-4 accent-accent" />
+        <label key={l} className="flex cursor-pointer items-center gap-2 text-[13px] text-ink">
+          <input type="checkbox" defaultChecked={on} className="size-3.5 accent-accent" />
           {l}
         </label>
       ))}
@@ -278,11 +277,11 @@ function CheckboxDemo() {
 
 function RadioDemo() {
   return (
-    <fieldset className="w-full space-y-2">
-      <legend className="text-caption text-muted">Delivery</legend>
-      {['Standard (3–5 days)', 'Express (next day)', 'Store pickup'].map((l, i) => (
-        <label key={l} className="flex cursor-pointer items-center gap-2.5 text-small text-ink">
-          <input type="radio" name="demo-delivery" defaultChecked={i === 0} className="size-4 accent-accent" />
+    <fieldset className="w-full space-y-1.5">
+      <legend className="text-caption text-muted">Delivery Speed</legend>
+      {['Standard (3–5 days)', 'Express (next day)'].map((l, i) => (
+        <label key={l} className="flex cursor-pointer items-center gap-2 text-[13px] text-ink">
+          <input type="radio" name="demo-delivery" defaultChecked={i === 0} className="size-3.5 accent-accent" />
           {l}
         </label>
       ))}
@@ -290,16 +289,40 @@ function RadioDemo() {
   )
 }
 
+function ListBoxDemo() {
+  const [selected, setSelected] = useState('FLAC Lossless')
+  const formats = ['Vinyl LP (180g)', 'Compact Disc', 'FLAC Lossless', 'Hi-Res 24-bit']
+
+  return (
+    <div className="w-full">
+      <span className="text-caption text-muted">Format Selection</span>
+      <div className="mt-1.5 max-h-20 overflow-y-auto rounded-lg border border-line bg-white p-1">
+        {formats.map((fmt) => (
+          <div
+            key={fmt}
+            onClick={() => setSelected(fmt)}
+            className={`cursor-pointer rounded px-2 py-1 text-[12px] transition-colors ${
+              selected === fmt ? 'bg-accent text-white font-medium' : 'text-ink hover:bg-surface'
+            }`}
+          >
+            {fmt}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function ComboDemo() {
   return (
     <label className="block w-full">
-      <span className="text-caption text-muted">Artist</span>
+      <span className="text-caption text-muted">Artist (Type or Pick)</span>
       <span className="relative mt-1.5 block">
-        <input id="demo-combobox" list="demo-artists" className="field pr-9" placeholder="Type or choose…" />
+        <input id="demo-combobox" list="demo-artists" defaultValue="Miles Davis" className="field pr-9" placeholder="Type or choose…" />
         <SelectChevron />
       </span>
       <datalist id="demo-artists">
-        {['Adele', 'Arijit Singh', 'Coldplay', 'Norah Jones', 'Queen', 'Taylor Swift'].map((a) => (
+        {['Adele', 'Coldplay', 'John Coltrane', 'Miles Davis', 'Taylor Swift'].map((a) => (
           <option key={a} value={a} />
         ))}
       </datalist>
@@ -312,8 +335,8 @@ function SliderDemo() {
   return (
     <label className="block w-full">
       <span className="flex justify-between text-caption text-muted">
-        Maximum price
-        <span className="font-medium tabular-nums text-ink">${value}</span>
+        Price Budget
+        <span className="font-semibold tabular-nums text-accent">${value}</span>
       </span>
       <input
         id="demo-slider"
@@ -323,9 +346,9 @@ function SliderDemo() {
         step="5"
         value={value}
         onChange={(e) => setValue(Number(e.target.value))}
-        className="mt-4 w-full accent-accent"
+        className="mt-2 w-full accent-accent"
       />
-      <span className="mt-1 flex justify-between text-[12px] text-muted">
+      <span className="mt-1 flex justify-between text-[11px] text-muted">
         <span>$5</span>
         <span>$100</span>
       </span>
@@ -333,246 +356,165 @@ function SliderDemo() {
   )
 }
 
-const inputControls = [
-  ['Text Box', 'Free-form data such as names, addresses and comments.', TextBoxDemo],
-  ['Dropdown', 'Pick one value from a long list while saving space.', DropdownDemo],
-  ['Checkbox', 'Select any number of independent yes/no options.', CheckboxDemo],
-  ['Radio Button', 'Choose exactly one from a few visible options.', RadioDemo],
-  ['Combo Box', 'Type a value or choose from a list — ideal for long lists.', ComboDemo],
-  ['Slider', 'Choose from a continuous range when exact precision isn’t needed.', SliderDemo],
-]
-
 export function InputControls() {
+  const controlsData = [
+    { title: 'Text Box', bestFor: 'Free-form strings (names, addresses, comments)', Demo: TextBoxDemo },
+    { title: 'Dropdown', bestFor: 'Single pick from large lists while conserving screen space', Demo: DropdownDemo },
+    { title: 'Checkbox', bestFor: 'Independent multi-select yes/no binary choices', Demo: CheckboxDemo },
+    { title: 'Radio Button', bestFor: 'Mutually exclusive choice from 2–5 visible options', Demo: RadioDemo },
+    { title: 'List Box', bestFor: 'Scrollable list where multiple choices stay continuously visible', Demo: ListBoxDemo },
+    { title: 'Combo Box', bestFor: 'Type-to-filter or select from large open-ended lists', Demo: ComboDemo },
+    { title: 'Slider', bestFor: 'Bounded continuous ranges where approximate values suffice', Demo: SliderDemo },
+  ]
+
   return (
-    <Slide title="Input Controls" className="grid grid-cols-3 grid-rows-2 gap-5">
-      {inputControls.map(([title, text, Demo], i) => (
-        <RevealCard key={title} delay={0.15 + i * 0.06} className="flex flex-col overflow-hidden">
-          <div className="flex flex-1 items-center bg-surface px-7 py-5">
-            <Demo />
-          </div>
-          <div className="px-7 py-4">
-            <h3 className="text-body font-semibold text-ink">{title}</h3>
-            <p className="mt-0.5 text-caption text-muted">
-              <span className="font-medium text-accent">Best for · </span>
-              {text}
-            </p>
-          </div>
-        </RevealCard>
-      ))}
+    <Slide
+      title="Input Controls"
+      subtitle="Selecting the optimal form control to minimize typing, enforce data integrity, and accelerate user entry."
+      className="flex flex-col justify-between"
+    >
+      <div className="grid grid-cols-4 gap-4">
+        {controlsData.slice(0, 4).map((c, i) => (
+          <RevealCard key={c.title} delay={0.12 + i * 0.05} className="p-4 flex flex-col justify-between">
+            <div className="rounded-lg bg-surface p-3 mb-2 flex items-center min-h-[92px]">
+              <c.Demo />
+            </div>
+            <div>
+              <h4 className="text-[15px] font-semibold text-ink">{c.title}</h4>
+              <p className="mt-0.5 text-[12px] text-muted leading-tight">
+                <span className="font-medium text-accent">Best for: </span>{c.bestFor}
+              </p>
+            </div>
+          </RevealCard>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-3 gap-4 mt-1">
+        {controlsData.slice(4, 7).map((c, i) => (
+          <RevealCard key={c.title} delay={0.32 + i * 0.05} className="p-4 flex flex-col justify-between">
+            <div className="rounded-lg bg-surface p-3 mb-2 flex items-center min-h-[92px]">
+              <c.Demo />
+            </div>
+            <div>
+              <h4 className="text-[15px] font-semibold text-ink">{c.title}</h4>
+              <p className="mt-0.5 text-[12px] text-muted leading-tight">
+                <span className="font-medium text-accent">Best for: </span>{c.bestFor}
+              </p>
+            </div>
+          </RevealCard>
+        ))}
+      </div>
     </Slide>
   )
 }
 
 /* ------------------------------------------------------------------
-   22 · Input validation pipeline
+   18 · Input Validation (Merged Pipeline + All 6 Validation Checks)
 ------------------------------------------------------------------- */
-const checks = [
-  ['User Input', 'Data is entered on a form', 'Form submitted'],
-  ['Completeness', 'All required fields are filled', '“Name is required”'],
-  ['Format', 'Right type and pattern', '“Phone has letters”'],
-  ['Range', 'Values within allowed limits', '“Quantity 1–10”'],
-  ['Consistency', 'Related fields agree', '“End before start”'],
-  ['Database', 'Values match stored records', '“Customer ID not found”'],
+const validationPipelineSteps = [
+  { step: 'Completeness', rule: 'All required fields present', example: '“Full Name is required”' },
+  { step: 'Format', rule: 'Matches expected type & syntax', example: '“Must be a valid email (@)”' },
+  { step: 'Range', rule: 'Values within logical bounds', example: '“Quantity must be 1–10”' },
+  { step: 'Check Digit', rule: 'Mathematical algorithm check', example: '“Luhn checksum verified”' },
+  { step: 'Consistency', rule: 'Interdependent fields agree', example: '“End date after start date”' },
+  { step: 'Database', rule: 'Referential record integrity', example: '“SKU in inventory & in stock”' },
 ]
 
-export function ValidationPipeline() {
-  const base = 0.2
-  const step = 0.14
+export function InputValidation() {
+  const base = 0.15
+  const step = 0.12
+
   return (
     <Slide
       title="Input Validation"
-      subtitle="Every input passes through a series of checks before it is accepted."
-      className="flex flex-col justify-center"
+      subtitle="Multi-tier validation pipeline ensuring data accuracy, integrity, and safety before database persistence."
+      className="flex flex-col justify-between"
     >
-      <div className="grid grid-cols-[repeat(6,1fr)_auto]">
-        {/* Return path when a check fails */}
-        <div className="relative col-span-6 h-16">
-          <motion.div
-            className="absolute bottom-0 left-[26px] h-8 w-[83.333%] rounded-t-2xl border-x-[1.5px] border-t-[1.5px] border-dashed border-ink/30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.45, delay: base + step * 7, ease: EASE }}
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" className="absolute -bottom-1.5 -left-[6.75px] text-ink/40" aria-hidden="true">
-              <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-4 text-caption text-muted">
-              Any check fails → return to the user with a clear message, keeping their data
-            </span>
-          </motion.div>
+      {/* Top: Pipeline Diagram */}
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <Label>Validation Pipeline</Label>
+          <span className="text-caption text-muted">Sequential Verification Stages</span>
         </div>
-        <div />
 
-        {checks.map(([title, text, example], i) => (
-          <div key={title}>
-            <div className="flex items-center">
-              <Reveal delay={base + i * step} y={8}>
-                <span
-                  className={`grid size-[52px] place-items-center rounded-full border-[1.5px] text-small font-semibold ${
-                    i === 0 ? 'border-ink/30 text-ink' : 'border-accent text-accent'
-                  }`}
-                >
-                  {i === 0 ? '↳' : i}
-                </span>
-              </Reveal>
-              <FlowArrow delay={base + i * step + 0.08} className="mx-3 flex-1" />
-            </div>
-            <Reveal delay={base + i * step + 0.05} className="mt-6 pr-6">
-              <h3 className="text-body font-semibold text-ink">{title}</h3>
-              <p className="mt-1 text-caption text-muted">{text}</p>
-              <p className="mt-3 text-caption italic text-ink/70">{example}</p>
-            </Reveal>
+        <div className="relative rounded-2xl border border-line bg-surface p-6">
+          {/* Overhead Failure Return Loop */}
+          <div className="relative h-10 w-full mb-2">
+            <motion.div
+              className="absolute inset-x-8 top-1 h-6 rounded-t-xl border-x-[1.5px] border-t-[1.5px] border-dashed border-ink/30"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.45, delay: base + step * 6, ease: EASE }}
+            >
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface px-4 text-[12px] font-medium text-muted">
+                Any check fails → Return immediately to user with clear field message, preserving all entered data
+              </span>
+            </motion.div>
           </div>
-        ))}
 
-        <Reveal delay={base + 6 * step} y={8} className="flex flex-col items-start">
-          <span className="grid size-[52px] place-items-center rounded-full bg-accent text-body text-white">
-            ✓
-          </span>
-          <p className="mt-6 text-body font-semibold text-accent">Accepted</p>
-          <p className="mt-1 text-caption text-muted">Saved to the system</p>
-        </Reveal>
+          <div className="grid grid-cols-[auto_repeat(6,1fr)_auto] items-center gap-2">
+            {/* Input Start */}
+            <div className="flex flex-col items-center">
+              <span className="grid size-10 place-items-center rounded-full border border-ink/30 bg-white text-small font-semibold text-ink">
+                ↳
+              </span>
+              <span className="mt-2 text-[11px] font-semibold text-muted uppercase">Input</span>
+            </div>
+
+            <FlowArrow delay={base} className="w-4" />
+
+            {/* 6 Checks */}
+            {validationPipelineSteps.map((c, i) => (
+              <div key={c.step} className="flex items-center">
+                <div className="flex flex-1 flex-col items-center">
+                  <Reveal delay={base + (i + 1) * step} y={6}>
+                    <span className="grid size-10 place-items-center rounded-full border-[1.5px] border-accent bg-white text-small font-semibold text-accent">
+                      {i + 1}
+                    </span>
+                  </Reveal>
+                  <p className="mt-2 text-[12px] font-semibold text-ink text-center leading-tight">
+                    {c.step}
+                  </p>
+                </div>
+                {i < validationPipelineSteps.length - 1 && (
+                  <FlowArrow delay={base + (i + 1) * step + 0.05} className="mx-1 w-3" />
+                )}
+              </div>
+            ))}
+
+            <FlowArrow delay={base + 6 * step} className="w-4" />
+
+            {/* Accepted End */}
+            <div className="flex flex-col items-center">
+              <span className="grid size-10 place-items-center rounded-full bg-accent text-small font-bold text-white">
+                ✓
+              </span>
+              <span className="mt-2 text-[11px] font-semibold text-accent uppercase">Saved</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <Reveal delay={1.3} className="mt-14 text-caption text-muted">
-        Also common: <span className="text-ink">check-digit</span> validation for codes such as ISBNs
-        and card numbers.
-      </Reveal>
-    </Slide>
-  )
-}
-
-/* ------------------------------------------------------------------
-   23 · Validation examples — live form
-------------------------------------------------------------------- */
-function parseDMY(value) {
-  const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value.trim())
-  if (!m) return null
-  const [d, mo, y] = [Number(m[1]), Number(m[2]), Number(m[3])]
-  const date = new Date(y, mo - 1, d)
-  return date.getFullYear() === y && date.getMonth() === mo - 1 && date.getDate() === d ? date : null
-}
-
-const validators = {
-  email: (v) =>
-    /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim()) ? null : 'Enter a valid email, e.g. name@example.com',
-  phone: (v) => {
-    const digits = v.replace(/[\s-]/g, '')
-    if (!/^\d+$/.test(digits)) return 'Use digits only'
-    if (digits.length !== 11) return `Must be 11 digits — ${digits.length} entered`
-    return null
-  },
-  expiry: (v) => {
-    const m = /^(0[1-9]|1[0-2])\/(\d{2})$/.exec(v.trim())
-    if (!m) return 'Use the format MM/YY'
-    const firstOfNextMonth = new Date(2000 + Number(m[2]), Number(m[1]), 1)
-    return firstOfNextMonth <= new Date() ? `This card expired in ${v.trim()}` : null
-  },
-  dob: (v) => (parseDMY(v) ? null : 'Not a real date — use DD/MM/YYYY'),
-  checkIn: (v) => (parseDMY(v) ? null : 'Use DD/MM/YYYY'),
-  checkOut: (v, all) => {
-    const out = parseDMY(v)
-    if (!out) return 'Use DD/MM/YYYY'
-    const inDate = parseDMY(all.checkIn)
-    if (inDate && out <= inDate) return 'Check-out must be after check-in'
-    return null
-  },
-}
-
-const initialValues = {
-  email: 'ayesha.rahman@mail',
-  phone: '0171-234567',
-  expiry: '03/24',
-  dob: '31/02/2004',
-  checkIn: '12/10/2026',
-  checkOut: '10/10/2026',
-}
-
-function ValidatedField({ id, label, value, error, onChange, placeholder }) {
-  return (
-    <label className="block" htmlFor={id}>
-      <span className="text-caption text-muted">{label}</span>
-      <input
-        id={id}
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
-        aria-invalid={Boolean(error)}
-        aria-describedby={`${id}-msg`}
-        className={`field mt-1 ${error ? 'border-ink/70' : 'border-accent/50'}`}
-        autoComplete="off"
-        spellCheck="false"
-      />
-      <span id={`${id}-msg`} className={`mt-1 block h-5 text-[13px] ${error ? 'text-ink' : 'text-accent'}`}>
-        {error ? `✕  ${error}` : '✓  Looks good'}
-      </span>
-    </label>
-  )
-}
-
-const rules = [
-  ['Email', 'One “@”, a domain and an ending such as .com', ['Format']],
-  ['Phone number', 'Digits only, exactly 11 digits', ['Format', 'Range']],
-  ['Card expiry', 'Valid MM/YY that is not in the past', ['Format', 'Range']],
-  ['Date', 'A real calendar date — no 31 February', ['Format']],
-  ['Cross-field', 'Check-out must be after check-in', ['Consistency']],
-]
-
-export function ValidationExamples() {
-  const [values, setValues] = useState(initialValues)
-  const set = (key) => (v) => setValues((prev) => ({ ...prev, [key]: v }))
-  const err = (key) => validators[key](values[key], values)
-
-  return (
-    <Slide title="Validation Examples" className="grid grid-cols-[1.05fr_1fr] gap-16">
-      <RevealCard delay={0.15} className="p-8">
-        <div className="mb-5 flex items-baseline justify-between">
-          <h3 className="text-body font-semibold text-ink">Book a stay</h3>
-          <button
-            id="validation-reset"
-            type="button"
-            onClick={() => setValues(initialValues)}
-            className="text-caption text-muted underline-offset-4 hover:text-accent hover:underline"
-          >
-            Reset example
-          </button>
+      {/* Bottom: Detailed Cards for the 6 Validation Checks */}
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <Label>The Six Essential Validation Checks</Label>
+          <span className="text-caption text-muted">Comprehensive Audit Criteria</span>
         </div>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-1.5">
-          <div className="col-span-2">
-            <ValidatedField id="v-email" label="Email" value={values.email} error={err('email')} onChange={set('email')} />
-          </div>
-          <div className="col-span-2">
-            <ValidatedField id="v-phone" label="Phone number" value={values.phone} error={err('phone')} onChange={set('phone')} />
-          </div>
-          <ValidatedField id="v-expiry" label="Card expiry (MM/YY)" value={values.expiry} error={err('expiry')} onChange={set('expiry')} />
-          <ValidatedField id="v-dob" label="Date of birth" value={values.dob} error={err('dob')} onChange={set('dob')} />
-          <ValidatedField id="v-checkin" label="Check-in" value={values.checkIn} error={err('checkIn')} onChange={set('checkIn')} />
-          <ValidatedField id="v-checkout" label="Check-out" value={values.checkOut} error={err('checkOut')} onChange={set('checkOut')} />
-        </div>
-      </RevealCard>
-
-      <div className="flex flex-col justify-center">
-        <Reveal delay={0.2}>
-          <Label>Rules behind the form</Label>
-          <p className="mt-2 text-small text-muted">Edit the fields — messages update as you type.</p>
-        </Reveal>
-        <ul className="mt-6 divide-y divide-line border-y border-line">
-          {rules.map(([field, rule, types], i) => (
-            <Reveal as="li" key={field} delay={0.28 + i * 0.07} className="flex items-center gap-6 py-4">
-              <div className="flex-1">
-                <p className="text-small font-semibold text-ink">{field}</p>
-                <p className="text-caption text-muted">{rule}</p>
+        <div className="grid grid-cols-6 gap-3">
+          {validationPipelineSteps.map((chk, i) => (
+            <RevealCard key={chk.step} delay={0.25 + i * 0.05} className="p-3.5 flex flex-col justify-between">
+              <div>
+                <span className="text-[11px] font-semibold tabular-nums text-accent">Check {i + 1}</span>
+                <h4 className="mt-1 text-small font-semibold text-ink leading-snug">{chk.step} Check</h4>
+                <p className="mt-1 text-[11px] text-muted leading-tight">{chk.rule}</p>
               </div>
-              <div className="flex gap-1.5">
-                {types.map((t) => (
-                  <Chip key={t} accent={t === 'Consistency'}>
-                    {t}
-                  </Chip>
-                ))}
+              <div className="mt-3 border-t border-line/60 pt-2 text-[11px] italic text-ink/80">
+                {chk.example}
               </div>
-            </Reveal>
+            </RevealCard>
           ))}
-        </ul>
+        </div>
       </div>
     </Slide>
   )
