@@ -120,38 +120,35 @@ export function ScenarioStructure() {
           Outlines the exact steps a user follows to complete a specific goal.
         </p>
 
-        <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+        <div className="mt-4 rounded-xl border border-line bg-surface p-3.5">
           <div className="flex items-baseline justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-              E-Commerce Scenario
+              Sample Task Flow
             </span>
-            <span className="text-caption font-semibold text-ink">Purchasing Album</span>
+            <span className="text-[12px] font-medium text-accent">Album Purchase</span>
           </div>
-          <ol className="mt-3 space-y-1.5 text-[13px] text-ink">
+          <ol className="mt-2.5 space-y-1 text-[12.5px] text-ink">
             <li className="flex gap-2">
-              <span className="text-accent font-semibold">1.</span> User searches by artist name
+              <span className="text-accent font-semibold">1.</span> Search catalog &amp; audition track
             </li>
             <li className="flex gap-2">
-              <span className="text-accent font-semibold">2.</span> Auditions track sample & selects format
+              <span className="text-accent font-semibold">2.</span> Select media format &amp; add to cart
             </li>
             <li className="flex gap-2">
-              <span className="text-accent font-semibold">3.</span> Adds to cart & proceeds to checkout
-            </li>
-            <li className="flex gap-2">
-              <span className="text-accent font-semibold">4.</span> Confirms shipping address & submits payment
+              <span className="text-accent font-semibold">3.</span> Confirm shipping &amp; submit payment
             </li>
           </ol>
         </div>
 
         <Points
           items={[
-            { title: 'User Goals', text: 'Clear target outcome driving the session.' },
-            { title: 'Workflows', text: 'Sequential path from entry point to completion.' },
-            { title: 'Edge Cases & Errors', text: 'Managing stockouts or payment declines gracefully.' },
+            { title: 'User Goals', text: 'Target outcome driving the session.' },
+            { title: 'Workflows', text: 'Step-by-step path from start to completion.' },
+            { title: 'Edge Cases & Errors', text: 'Graceful handling of exceptions (e.g. stockout).' },
           ]}
           delay={0.25}
           size="small"
-          className="mt-6 space-y-3"
+          className="mt-4 space-y-2.5"
         />
       </RevealCard>
 

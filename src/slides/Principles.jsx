@@ -20,19 +20,19 @@ import {
 const uiMergedTopics = [
   {
     title: 'Purpose of UI Design',
-    text: 'Serves as the vital bridge between human users and underlying software functionality — translating intent into action and system state into clear comprehension.',
+    text: 'Bridges user intent and software capability; translates goals into intuitive action.',
   },
   {
     title: 'User Interaction',
-    text: 'The bidirectional dialogue: users express commands through inputs, gestures, and controls, while the system responds with immediate visual feedback and state changes.',
+    text: 'Two-way dialogue: users issue commands, the system responds with immediate feedback.',
   },
   {
     title: 'User Satisfaction',
-    text: 'How people feel while working with the system — fostering confidence, trust, comfort, and minimal frustration through intuitive, pleasant, and accessible design.',
+    text: 'Fosters trust, ease, and comfort while minimizing cognitive strain and friction.',
   },
   {
     title: 'System Efficiency',
-    text: 'Enabling tasks to be completed rapidly, accurately, and with minimal friction — eliminating wasted steps, reducing input errors, and maximizing operational throughput.',
+    text: 'Maximizes task speed, throughput, and accuracy with minimal human error.',
   },
 ]
 
@@ -312,15 +312,15 @@ export function AestheticsUXConsistency() {
           items={[
             {
               title: 'Purposeful Colors',
-              text: 'A restrained, high-contrast palette. Color reinforces meaning but is never the sole indicator.',
+              text: 'High-contrast palette; supports meaning without being the sole cue.',
             },
             {
               title: 'Typography Scale',
-              text: 'Clear hierarchy across titles, body, and labels with readable, scalable fonts.',
+              text: 'Clear hierarchy across headings, body, and labels with readable fonts.',
             },
             {
-              title: 'Whitespace & Density',
-              text: 'Chunk related elements; give content room to breathe to avoid visual fatigue.',
+              title: 'Whitespace & Balance',
+              text: 'Chunks related content; provides breathing room to prevent clutter.',
             },
           ]}
           delay={0.25}
@@ -353,15 +353,15 @@ export function AestheticsUXConsistency() {
           items={[
             {
               title: 'Responsiveness',
-              text: 'Immediate visual feedback for every user action; layout adapts seamlessly across devices.',
+              text: 'Instant feedback on every action; layouts adapt across screen sizes.',
             },
             {
               title: 'Learnability & Ease',
-              text: 'Natural mental models enable novices to learn quickly and experts to work rapidly.',
+              text: 'Intuitive mental models for quick learning and low cognitive fatigue.',
             },
             {
               title: 'Accessibility & Safety',
-              text: 'Full keyboard navigation, high contrast, and tolerant workflows that simplify error recovery.',
+              text: 'Full keyboard support, clear contrast, and tolerant error recovery.',
             },
           ]}
           delay={0.33}
@@ -393,15 +393,15 @@ export function AestheticsUXConsistency() {
           items={[
             {
               title: 'Internal Consistency',
-              text: 'Same terminology, typography, colors, and button placement on every screen across the system.',
+              text: 'Same terms, layout zones, and button placements across every screen.',
             },
             {
               title: 'External Conventions',
-              text: 'Conforms to platform standards users already know (e.g., logo links home, standard shortcuts).',
+              text: 'Adheres to common platform norms (e.g. Ctrl+S, logo links home).',
             },
             {
               title: 'Muscle Memory',
-              text: 'Users transfer learned habits across screens without hesitating or relearning interactions.',
+              text: 'Predictable interactions prevent user hesitation and relearning.',
             },
           ]}
           delay={0.41}
@@ -439,7 +439,7 @@ export function MinimizeUserEffort() {
           </div>
           <h3 className="mt-3 text-heading font-semibold text-ink">Autofill</h3>
           <p className="mt-1 text-caption text-muted">
-            Pre-populate fields using data already stored in profile or browser cache.
+            Pre-fills saved profile or browser data.
           </p>
 
           <div className="mt-5 rounded-xl border border-line bg-surface p-4">
@@ -461,7 +461,7 @@ export function MinimizeUserEffort() {
             </div>
           </div>
           <p className="mt-4 text-[13px] text-muted">
-            <span className="font-semibold text-ink">Benefit:</span> Eliminates 80% of repetitive checkout keystrokes.
+            <span className="font-semibold text-ink">Benefit:</span> Eliminates repetitive manual typing.
           </p>
         </RevealCard>
 
@@ -473,7 +473,7 @@ export function MinimizeUserEffort() {
           </div>
           <h3 className="mt-3 text-heading font-semibold text-ink">Predictive Text</h3>
           <p className="mt-1 text-caption text-muted">
-            Suggest matching terms and queries in real time as the user types.
+            Suggests matching queries in real time.
           </p>
 
           <div className="mt-5 rounded-xl border border-line bg-surface p-4">
@@ -506,7 +506,7 @@ export function MinimizeUserEffort() {
             </div>
           </div>
           <p className="mt-4 text-[13px] text-muted">
-            <span className="font-semibold text-ink">Benefit:</span> Prevents spelling errors and narrows results instantly.
+            <span className="font-semibold text-ink">Benefit:</span> Prevents typos and speeds search.
           </p>
         </RevealCard>
 
@@ -518,7 +518,7 @@ export function MinimizeUserEffort() {
           </div>
           <h3 className="mt-3 text-heading font-semibold text-ink">Shortcuts</h3>
           <p className="mt-1 text-caption text-muted">
-            Keyboard accelerators for high-frequency actions and power users.
+            Keyboard accelerators for power users.
           </p>
 
           <div className="mt-5 rounded-xl border border-line bg-surface p-4">
@@ -545,7 +545,7 @@ export function MinimizeUserEffort() {
             </div>
           </div>
           <p className="mt-4 text-[13px] text-muted">
-            <span className="font-semibold text-ink">Benefit:</span> Bypasses mouse travel for repetitive daily workflows.
+            <span className="font-semibold text-ink">Benefit:</span> Bypasses mouse navigation for speed.
           </p>
         </RevealCard>
 
@@ -557,7 +557,7 @@ export function MinimizeUserEffort() {
           </div>
           <h3 className="mt-3 text-heading font-semibold text-ink">Remember Me</h3>
           <p className="mt-1 text-caption text-muted">
-            Persist session tokens and user state across multiple visits.
+            Persists session tokens across return visits.
           </p>
 
           <div className="mt-5 rounded-xl border border-line bg-surface p-4">
@@ -582,7 +582,7 @@ export function MinimizeUserEffort() {
             </div>
           </div>
           <p className="mt-4 text-[13px] text-muted">
-            <span className="font-semibold text-ink">Benefit:</span> Eliminates continuous re-authentication friction.
+            <span className="font-semibold text-ink">Benefit:</span> Eliminates repeated login friction.
           </p>
         </RevealCard>
       </div>

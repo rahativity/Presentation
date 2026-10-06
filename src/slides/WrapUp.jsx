@@ -7,19 +7,19 @@ import { Chip, Index, Label, Reveal, RevealCard } from '../components/ui.jsx'
 const discussionAngles = [
   {
     title: 'Cognitive Load Reduction',
-    text: 'Users transfer existing mental models effortlessly without having to pause, decipher, or relearn interactions.',
+    text: 'Users transfer mental models effortlessly without pausing or relearning.',
   },
   {
     title: 'Error Prevention & Safety',
-    text: 'Standardized button positions, destructive confirmations, and color semantics prevent accidental mistakes.',
+    text: 'Standardized buttons and confirmations prevent accidental misclicks.',
   },
   {
     title: 'Speed & Muscle Memory',
-    text: 'Predictable workflows and keyboard accelerators allow frequent users to navigate at maximum throughput.',
+    text: 'Predictable workflows and shortcuts maximize user throughput.',
   },
   {
     title: 'Design System Governance',
-    text: 'Centralized UI tokens, reusable component templates, and heuristic audits ensure coherence across teams.',
+    text: 'Shared tokens, templates, and audits maintain coherence at scale.',
   },
 ]
 
@@ -27,32 +27,32 @@ const summaryPillars = [
   {
     title: 'UI Principles',
     badge: 'Pillar 1',
-    desc: 'Balance layout, aesthetics, UX, consistency, and effort minimization (the Three-Clicks Rule).',
+    desc: 'Layout, aesthetics, UX, consistency & the 3-clicks rule.',
   },
   {
     title: 'UI Process',
     badge: 'Pillar 2',
-    desc: 'Iterate systematically from use scenarios through structure to prototyping and evaluation.',
+    desc: 'Iterative cycle from use scenarios to evaluation.',
   },
   {
     title: 'Navigation Design',
     badge: 'Pillar 3',
-    desc: 'Provide predictable hierarchies, mistake prevention, easy recovery, and appropriate menu controls.',
+    desc: 'Clear hierarchies, mistake prevention & reversible routes.',
   },
   {
     title: 'Input Design',
     badge: 'Pillar 4',
-    desc: 'Capture data at source via automation, select the optimal control, and minimize manual typing.',
+    desc: 'Source data capture, optimal controls & typing reduction.',
   },
   {
     title: 'Validation',
     badge: 'Pillar 5',
-    desc: 'Enforce multi-tier checks (completeness, format, range, check digit, consistency, database).',
+    desc: 'Multi-tier verification pipeline before data commit.',
   },
   {
     title: 'Output Design',
     badge: 'Pillar 6',
-    desc: 'Deliver relevant, accurate, timely reports and dashboards across web, mobile, PDF, and print.',
+    desc: 'Relevant, timely reports & dashboards across media.',
   },
 ]
 

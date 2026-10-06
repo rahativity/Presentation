@@ -59,28 +59,28 @@ const glyphs = {
 const inputPrinciplesList = [
   {
     title: 'Data Accuracy',
-    desc: 'Capture error-free data at the point of origination to prevent cascading corruption.',
+    desc: 'Capture clean, error-free data on first entry to prevent corruption.',
   },
   {
     title: 'Data Integrity',
-    desc: 'Enforce business rules, schema constraints, and valid relational references.',
+    desc: 'Enforce business rules, schema constraints, and valid references.',
   },
   {
     title: 'Keystroke Reduction',
-    desc: 'Minimise manual typing with defaults, structured selection lists, and auto-complete.',
+    desc: 'Use smart defaults, structured selection lists, and auto-complete.',
   },
   {
     title: 'Source Data Automation',
-    desc: 'Capture data electronically where it originates to eliminate human re-keying.',
+    desc: 'Capture data electronically where it originates to eliminate re-keying.',
   },
 ]
 
 const technologies = [
-  ['Barcode Reader', 'Scans 1D/2D optical codes instantly', 'Retail POS, warehouse inventory', glyphs.barcode],
-  ['OCR', 'Converts printed/written characters to digital data', 'Forms, cheques, paper archives', glyphs.ocr],
-  ['Smart Card', 'Cryptographic microchip stores and authenticates data', 'EMV bank cards, national IDs', glyphs.chip],
-  ['RFID', 'Radio tags read wirelessly without line of sight', 'Toll systems, supply chain logistics', glyphs.rfid],
-  ['Web Forms', 'Captures structured user input directly online', 'E-commerce, customer portals', glyphs.form],
+  ['Barcode Reader', 'Scans optical codes instantly', 'Retail POS & warehouse inventory', glyphs.barcode],
+  ['OCR', 'Converts printed text into digital data', 'Paper forms, cheques & archives', glyphs.ocr],
+  ['Smart Card', 'Microchip stores & authenticates securely', 'EMV bank cards & national IDs', glyphs.chip],
+  ['RFID', 'Wireless tags read without line-of-sight', 'Toll systems & logistics tracking', glyphs.rfid],
+  ['Web Forms', 'Captures structured input directly online', 'E-commerce & customer portals', glyphs.form],
 ]
 
 export function InputOverview() {

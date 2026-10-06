@@ -133,7 +133,7 @@ export function NavigationDesign() {
               </div>
               <h3 className="mt-2 text-body font-semibold text-ink">Prevent Mistakes</h3>
               <p className="mt-1 text-caption text-muted">
-                Label commands clearly, disable invalid choices, and require confirmation for destructive actions.
+                Label commands clearly, disable invalid choices, and confirm destructive actions.
               </p>
             </div>
             <div className="mt-3 rounded-lg bg-surface p-2.5">
@@ -150,7 +150,7 @@ export function NavigationDesign() {
               </div>
               <h3 className="mt-2 text-body font-semibold text-ink">Simplify Recovery</h3>
               <p className="mt-1 text-caption text-muted">
-                Ensure actions are easily reversible; keep Undo, Cancel, and Back options visible and immediate.
+                Make actions reversible; keep Undo, Cancel, and Back visible and immediate.
               </p>
             </div>
             <div className="mt-3 rounded-lg bg-surface p-2.5">
@@ -167,7 +167,7 @@ export function NavigationDesign() {
               </div>
               <h3 className="mt-2 text-body font-semibold text-ink">Consistent Grammar</h3>
               <p className="mt-1 text-caption text-muted">
-                Standardize command syntax uniformly: either always object-then-action or action-then-object.
+                Standardize command syntax uniformly: either object-then-action or action-then-object.
               </p>
             </div>
             <div className="mt-3 rounded-lg bg-surface p-2.5">
@@ -191,7 +191,7 @@ export function NavigationDesign() {
             <div>
               <h3 className="text-body font-semibold text-ink">Language Commands</h3>
               <p className="mt-0.5 text-caption text-muted">
-                Users type exact textual commands or natural syntax in a command interface.
+                Users enter textual commands or natural-language syntax.
               </p>
             </div>
             <div className="mt-3 h-18 rounded-lg bg-surface p-2">
@@ -208,7 +208,7 @@ export function NavigationDesign() {
             <div>
               <h3 className="text-body font-semibold text-ink">Menus</h3>
               <p className="mt-0.5 text-caption text-muted">
-                Users choose from a categorized visual list of available options and functions.
+                Users choose from a categorized visual list of options.
               </p>
             </div>
             <div className="mt-3 h-18 rounded-lg bg-surface p-2">
@@ -225,7 +225,7 @@ export function NavigationDesign() {
             <div>
               <h3 className="text-body font-semibold text-ink">Direct Manipulation</h3>
               <p className="mt-0.5 text-caption text-muted">
-                Users interact with visual objects directly via drag-and-drop, clicks, or gestures.
+                Users interact with visual objects directly (drag, drop, resize).
               </p>
             </div>
             <div className="mt-3 h-18 rounded-lg bg-surface p-2">
@@ -248,57 +248,57 @@ export function NavigationDesign() {
 const navComparisonTable = [
   {
     name: 'Menu Bar',
-    scope: 'Global Nav',
-    what: 'Persistent horizontal list of commands across the top of the application',
-    when: 'Primary top-level entryway for core system modules and major functional areas',
+    scope: 'Global',
+    what: 'Horizontal command strip pinned across the screen top',
+    when: 'Primary entryway for major top-level system modules',
   },
   {
     name: 'Drop-down Menu',
     scope: 'Hierarchical',
-    what: 'Cascading menu list that drops below a parent item upon hover or click',
-    when: 'Grouping second-level commands beneath broader menu-bar categories without clutter',
+    what: 'Cascading list revealing options beneath a parent item',
+    when: 'Grouping second-level commands without cluttering the screen',
   },
   {
     name: 'Hyperlink Menu',
     scope: 'Page Index',
-    what: 'Structured list of text links leading to distinct pages or system sections',
-    when: 'Main navigational index of web applications, sidebars, and resource directories',
+    what: 'Structured list of text links to destination pages',
+    when: 'Main navigational directory for web portals and sidebars',
   },
   {
     name: 'Embedded Hyperlink',
     scope: 'In-Content',
-    what: 'Clickable links embedded directly within paragraph copy and descriptive text',
-    when: 'Referencing definitions, related documentation, or cross-cutting items in context',
+    what: 'Clickable inline text links woven into paragraph copy',
+    when: 'Contextual references to related records or definitions',
   },
   {
     name: 'Pop-up / Context Menu',
     scope: 'Contextual',
-    what: 'Floats at current cursor coordinates upon right-click or long-press',
-    when: 'Power-user shortcuts tailored specifically to the currently selected object',
+    what: 'Floats at cursor coordinates on right-click or long-press',
+    when: 'Power-user shortcuts tailored to the selected object',
   },
   {
     name: 'Tab Menu / Tabs',
     scope: 'In-Page Views',
-    what: 'Notebook-style tab headers switching between parallel views on the same screen',
-    when: 'Organizing multi-panel forms, settings, or related views without navigating away',
+    what: 'Notebook-style tab headers switching between parallel views',
+    when: 'Switching related forms or views without leaving the screen',
   },
   {
     name: 'Breadcrumbs',
-    scope: 'Hierarchical Path',
-    what: 'Linear trail showing parent-child hierarchy (Home › Music › Rock › Album)',
-    when: 'Deep taxonomies where users must see their location and easily step backward',
+    scope: 'Hierarchy',
+    what: 'Linear parent-child trail (Home › Category › Item)',
+    when: 'Deep taxonomies to show exact path and easy return route',
   },
   {
     name: 'Search Bar',
     scope: 'Direct Access',
-    what: 'Text input with live query matching, auto-suggestions, and shortcut accelerator',
-    when: 'Expansive systems where users know target keywords; bypasses deep browsing',
+    what: 'Query text input with live filtering and auto-suggestions',
+    when: 'Fast keyword navigation that bypasses deep browsing',
   },
   {
     name: 'Image Map',
     scope: 'Spatial',
-    what: 'Clickable geographic or spatial hotspot regions defined over a diagram or graphic',
-    when: 'Specialized cases where the graphic itself carries critical meaning (seat maps, blueprints)',
+    what: 'Clickable hotspot coordinates defined over a visual graphic',
+    when: 'Spatial contexts where the image carries meaning (maps, seating)',
   },
 ]
 

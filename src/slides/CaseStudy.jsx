@@ -5,56 +5,56 @@ import { Chip, FlowArrow, Label, Reveal, RevealCard } from '../components/ui.jsx
    19 · Output Design + Tune Source Case Study (Merged Synthesis)
 ------------------------------------------------------------------- */
 const outputPrinciples = [
-  { title: 'Relevance', desc: 'Present only information necessary for user tasks and decisions' },
-  { title: 'Accuracy', desc: 'Verifiable, error-free data free from presentation bias' },
-  { title: 'Timeliness', desc: 'Delivered when needed so users can take immediate action' },
-  { title: 'Accessibility', desc: 'Readable across devices, contrast requirements, and abilities' },
+  { title: 'Relevance', desc: 'Targeted data needed for immediate decisions' },
+  { title: 'Accuracy', desc: 'Verifiable, correct and unbiased figures' },
+  { title: 'Timeliness', desc: 'Delivered in time to take meaningful action' },
+  { title: 'Accessibility', desc: 'Clear across devices, screen sizes & abilities' },
 ]
 
 const outputTypes = [
-  { title: 'Reports', desc: 'Structured documents: detail, summary, exception, and turnaround records' },
-  { title: 'Dashboards', desc: 'At-a-glance visualization of operational KPIs and live audio streams' },
-  { title: 'Notifications', desc: 'Actionable alerts delivered via push, SMS, email, and toasts' },
+  { title: 'Reports', desc: 'Structured detail, summary & exception documents' },
+  { title: 'Dashboards', desc: 'Real-time operational KPIs & status monitoring' },
+  { title: 'Notifications', desc: 'Actionable alerts via push, SMS, email & in-app' },
 ]
 
 const outputFormats = [
-  { format: 'Print', use: 'Formal archival records' },
-  { format: 'Web', use: 'Interactive dynamic views' },
-  { format: 'Mobile', use: 'On-the-go notifications' },
-  { format: 'PDF', use: 'Fixed-layout invoices' },
-  { format: 'Excel', use: 'Analytical exports' },
+  { format: 'Print', use: 'Archival records' },
+  { format: 'Web', use: 'Interactive views' },
+  { format: 'Mobile', use: 'On-the-go alerts' },
+  { format: 'PDF', use: 'Fixed invoices' },
+  { format: 'Excel', use: 'Data analysis' },
 ]
 
 const journeyStages = [
   {
     step: 'Browse Music',
-    action: 'Filter by genre or search by artist',
+    action: 'Filter by genre or search artist',
     discipline: 'UI & Navigation',
-    implementation: 'Catalog grid, persistent search bar, and genre breadcrumbs.',
+    implementation: 'Catalog grid, search & breadcrumbs',
   },
   {
     step: 'View Album',
-    action: 'Audition track sample, select media format',
+    action: 'Audition clip & pick format',
     discipline: 'UI & Input Controls',
-    implementation: 'Audio waveform player, format dropdown (Vinyl/CD/FLAC).',
+    implementation: 'Audio player & format dropdown',
   },
   {
     step: 'Add To Cart',
-    action: 'Verify quantity & shipping choice',
+    action: 'Confirm quantity & options',
     discipline: 'Navigation & Feedback',
-    implementation: 'Interactive badge update, non-blocking toast confirmation.',
+    implementation: 'Cart badge & toast confirmation',
   },
   {
     step: 'Checkout',
-    action: 'Enter address, shipping, and payment',
+    action: 'Enter shipping & payment',
     discipline: 'Input & Validation',
-    implementation: 'Autofill address; inline format, range & Luhn card validation.',
+    implementation: 'Autofill & Luhn card validation',
   },
   {
     step: 'Confirmation',
-    action: 'Review invoice, download files, tracking',
+    action: 'Review invoice & track order',
     discipline: 'Output Design',
-    implementation: 'Instant dashboard receipt, PDF invoice, digital vault token.',
+    implementation: 'Dashboard receipt & PDF invoice',
   },
 ]
 
